@@ -1,0 +1,14 @@
+clojurein-source-code/target
+clojurein-source-code/classes
+clojurein-source-code/checkouts
+clojurein-source-code/profiles.clj
+pom.xml
+pom.xml.asc
+*.jar
+*.class
+clojurein-source-code/.lein-*
+clojurein-source-code/.nrepl-port
+clojurein-source-code/.prepl-port
+clojurein-source-code/.hgignore
+clojurein-source-code/.hg/
+TEST-*.xml
