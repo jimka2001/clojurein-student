@@ -1,5 +1,6 @@
 (ns clojurein-source-code.homework.hello
-  (:require [clojure.pprint :refer [cl-format]]))
+  (:require [clojurein-source-code.homework.challenge :refer [???]]
+            [clojure.pprint :refer [cl-format]]))
 
 (defn hello
   "This function computes a String, but does not print it.
@@ -11,7 +12,6 @@
   then the value of who
   and finally a period, \".\""
   [who]
-  ;; CHALLENGE: student must complete the implementation.
-  (throw (ex-info "Not yet implemented"))
+  (???)
   )
 

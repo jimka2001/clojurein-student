@@ -1,47 +1,62 @@
-(ns clojurein-source-code.homework.recursion)
+(ns clojurein-source-code.homework.recursion
+  (:require [clojurein-source-code.homework.challenge :refer [???]]))
+
 
 (defn sum-by-simple-recursion
   ""
   [nums]
-  ;; CHALLENGE: student must complete the implementation.
-  (throw (ex-info "Not yet implemented"))
-  )
+  (if (empty? nums)
+    0
+    (+ (???)
+       (sum-by-simple-recursion (???)
+                                ))))
 
 (defn sum-by-loop-recur
   ""
   [nums]
-  ;; CHALLENGE: student must complete the implementation.
-  (throw (ex-info "Not yet implemented"))
-  )
+  (loop [acc 0
+         nums nums]
+    (if (empty? nums)
+      (???)
+      (recur (???)
+             (???)
+             ))))
 
 
 (defn sum-by-reduce
   ""
   [nums]
-  ;; CHALLENGE: student must complete the implementation.
-  (throw (ex-info "Not yet implemented"))
-  )
+  (reduce (???)
+          (???)
+          ))
 
 (defn product-by-simple-recursion
   ""
   [nums]
-  ;; CHALLENGE: student must complete the implementation.
-  (throw (ex-info "Not yet implemented"))
-  )
+  (if (empty? nums)
+    (???)
+    ((???)
+                 (???)
+                 (???)
+                 )))
 
 (defn product-by-loop-recur
   ""
   [nums]
-  (loop [acc 1
-         nums nums]
-    ;; CHALLENGE: student must complete the implementation.
-    (throw (ex-info "Not yet implemented"))
-    ))
+  (loop [acc (???)
+         nums (???)
+         ]
+    (if (empty? (???)
+                )
+      (???)
+      (recur (???)
+             (???)
+             ))))
 
 
 (defn product-by-reduce
   ""
   [nums]
-  ;; CHALLENGE: student must complete the implementation.
-  (throw (ex-info "Not yet implemented"))
-  )
+  (reduce (???)
+          (???)
+          ))
