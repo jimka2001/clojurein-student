@@ -1,5 +1,5 @@
 (ns clojurein-source-code.homework.binarysearch
-  (:require [clojurein-source-code.common.util :refer [???]]))
+  )
 
   
 ;; This function accepts a left which is guaranteed <= right,
@@ -28,7 +28,7 @@
    (loop [left -1.0
           right 1.0]
      ;; CHALLENGE: student must complete the implementation.
-     (throw (ex-info "Not yet implemented"))
+     (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
      ))
   ([left right f delta max-depth]
    (assert (<= left right))
@@ -43,27 +43,27 @@
      ((true false))
      ;; complement the function and make recursive call
      (bin-search-by-boolean left right
-                            (???)
+                            (throw (ex-info "Missing single expression, not yet implemented" {}))
                             delta max-depth)
 
      ((false true))
      (loop [left  left
             right right
             depth 0]
-       (let [mid (???)
+       (let [mid (throw (ex-info "Missing single expression, not yet implemented" {}))
              ]
          (cond (< (- right left) delta)
-               (???)
+               (throw (ex-info "Missing single expression, not yet implemented" {}))
 
                (and max-depth  ;; check max-depth as necessary
                     (>= depth max-depth))
-               (???)
+               (throw (ex-info "Missing single expression, not yet implemented" {}))
 
                (f mid)
-               (???)
+               (throw (ex-info "Missing single expression, not yet implemented" {}))
 
                :else
-               (???)
+               (throw (ex-info "Missing single expression, not yet implemented" {}))
                )))
 
      (throw (ex-info "line never reached")))))

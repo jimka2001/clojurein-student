@@ -1,9 +1,5 @@
 (ns clojurein-source-code.common.util)
 
-(defn ??? 
-  "Used to indicate that the student is required to finish the implementation."
-  []
-  (throw (ex-info "Not yet implemented" {})))
 
 (defn member
   "Determines whether the given target is an element of the given sequence."

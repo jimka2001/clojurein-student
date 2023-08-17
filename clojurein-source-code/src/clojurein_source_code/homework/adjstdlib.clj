@@ -1,6 +1,5 @@
 (ns clojurein-source-code.homework.adjstdlib
-  (:require [clojurein-source-code.common.util :refer [???]]
-            [clojure.set :refer [union difference]]))
+  (:require [clojure.set :refer [union difference]]))
 
 
 ;; In a previous lecture and exercise we implemented the makeAdj_*
@@ -40,8 +39,8 @@
 ;; this function computes the Adj list in the form of a Map[V,Set[V]]
 ;; assuming the given edges are directed.
 (defn make-adj-directed [edges]
-  (update-vals (???)
-               (fn [edges] (???)
+  (update-vals (throw (ex-info "Missing single expression, not yet implemented" {}))
+               (fn [edges] (throw (ex-info "Missing single expression, not yet implemented" {}))
                  )))
 
 
@@ -57,14 +56,14 @@
 ;; Seq((1,2),(3,4),(5,6)) --> Seq((2,1),(4,3),(6,5))
 (defn reversed-edges
   [edges]
-  (???)
+  (throw (ex-info "Missing single expression, not yet implemented" {}))
   )
 
 (defn make-adj [edges directed]
   (if directed
     (make-adj-directed edges)
-    (make-adj-directed (concat (???)
-                               (???)
+    (make-adj-directed (concat (throw (ex-info "Missing single expression, not yet implemented" {}))
+                               (throw (ex-info "Missing single expression, not yet implemented" {}))
                                ))))
 
 (defn reachable-vertices
@@ -73,5 +72,5 @@
     (loop [done #{}
            to-do #{v-start}]
       ;; CHALLENGE: student must complete the implementation.
-      (throw (ex-info "Not yet implemented"))
+      (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
       )))
