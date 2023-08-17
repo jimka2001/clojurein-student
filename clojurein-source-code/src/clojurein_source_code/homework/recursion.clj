@@ -1,5 +1,5 @@
 (ns clojurein-source-code.homework.recursion
-  (:require [clojurein-source-code.homework.challenge :refer [???]]))
+  (:require [clojurein-source-code.common.util :refer [???]]))
 
 
 (defn sum-by-simple-recursion
