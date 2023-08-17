@@ -1,5 +1,5 @@
-(ns clojurein-source-code.homework.adjstdlib-test
-  (:require [clojurein-source-code.homework.adjstdlib :as sut]
+(ns clojurein-source-code.homework.theg-test
+  (:require [clojurein-source-code.homework.theg :as sut]
             [clojurein-source-code.common.util :refer [member]]
             [clojure.test :refer [deftest is testing]]))
 
@@ -24,10 +24,6 @@
     (is (= (sut/reversed-edges [[1 2] [3 4]])
            '((2 1) (4 3))))))
 
-(sut/reversed-edges ['(1 2)])
-
-
-
 (deftest t-building
   (testing "building adjacency list"
     (is (member 2 (get (sut/make-adj [[1 2]] false) 1)))
@@ -47,6 +43,8 @@
     (is (= (sut/make-adj '(("a" "b") ("b" "c") ("a" "c") ("b" "d")) true)
            {"a" #{"b" "c"}
             "b" #{"c" "d"}}))))
+
+
 
 (deftest t-collect-connected-list
   (testing "collect connected vertices, list"
@@ -172,3 +170,113 @@
              #{"rosalie" "gilbert" "theophile" "fred"}))
       (is (= (sut/reachable-vertices edges  "rosalie" true)
              #{"rosalie" "gilbert" "theophile" "fred"})))))
+
+(deftest t-partition-by-dist-directed
+  (testing "partition vertices by distance directed"
+    (is (= {0 #{0}
+            1 #{1 2}}
+           (sut/partition-vertices-by-distance [[0 1] [0 2]] 0 true)))
+
+    (is (= {0  #{0}
+            1  #{1 2}
+            2  #{3}}
+           (sut/partition-vertices-by-distance '((0 1) 
+                                                 (0 2) 
+                                                 (1 2) 
+                                                 (1 3))
+                                               0 true)))
+
+    (is (= {0   #{0}
+            1   #{1 2}
+            2   #{3 4}}
+           (sut/partition-vertices-by-distance '((0 1) 
+                                                 (0 2) 
+                                                 (1 2) 
+                                                 (1 3) 
+                                                 (2 4))
+                                               0 true)))
+
+    (is (= {0   #{0}
+            1   #{1}
+            2   #{2}
+            3   #{3}
+            4   #{4}
+            5   #{5}}
+           (sut/partition-vertices-by-distance '((0 1) 
+                                                 (1 2) 
+                                                 (2 3) 
+                                                 (3 4) 
+                                                 (4 5)) 
+                                               0 true )))
+
+    (is (= {0   #{0}
+            1   #{1 5}
+            2   #{2}
+            3   #{3}
+            4   #{4}}
+           (sut/partition-vertices-by-distance '((0 1)  (0 5) 
+                                                 (1 2) 
+                                                 (2 3) 
+                                                 (3 4) 
+                                                 (4 5))
+                                               0 true)))))
+
+(deftest t-partition-by-dist-undirected
+  (testing "sut/partition-vertices-by-distance non-directed"
+    (is (= {0   #{0}
+            1   #{1 2}}
+           (sut/partition-vertices-by-distance '((0 1) (0 2)) 
+                                               0 false)))
+    (is (= {0   #{0}
+            1   #{1 2}
+            2   #{3}}
+           (sut/partition-vertices-by-distance '((0 1) 
+                                                 (0 2) 
+                                                 (1 2) 
+                                                 (1 3))
+                                               0 false)))
+
+    (is (= {0   #{0}
+            1   #{1 2}
+            2   #{3 4}}
+           (sut/partition-vertices-by-distance '((0 1) 
+                                                 (0 2) 
+                                                 (1 2) 
+                                                 (1 3) 
+                                                 (2 4))
+                                               0 false)))
+
+    (is (= {0   #{0}
+            1   #{1}
+            2   #{2 5}
+            3   #{3 4}}
+           (sut/partition-vertices-by-distance '((0 1) 
+                                                 (1 2) 
+                                                 (2 3) 
+                                                 (3 4) 
+                                                 (4 5) 
+                                                 (5 1))
+                                               0 false )))
+
+    (is (= {0   #{0}
+            1   #{1 5}
+            2   #{2 4} 
+            3   #{3}}
+           (sut/partition-vertices-by-distance '((0 1)  (0 5) 
+                                                 (1 2) 
+                                                 (2 3) 
+                                                 (3 4) 
+                                                 (4 5))
+                                               0 false)))
+
+    (is (= {0   #{0}
+            1   #{1 5}
+            2   #{2 4 6}
+            3   #{3 7}}
+           (sut/partition-vertices-by-distance '((0 1)  (0 5) 
+                                                 (1 2)  (1 6) 
+                                                 (2 3)  (2 6) 
+                                                 (3 4)  (3 7) 
+                                                 (4 5) 
+                                                 (6 7))
+                                               0 false )))))

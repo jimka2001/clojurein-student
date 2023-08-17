@@ -1,4 +1,4 @@
-(ns clojurein-source-code.homework.adjstdlib
+(ns clojurein-source-code.homework.theg
   (:require [clojure.set :refer [union difference]]))
 
 
@@ -44,12 +44,6 @@
                  )))
 
 
-
-;; (make-adj-directed '((1 2) (1 3) (2 3)))
-
-
-
-
 ;; Given a sequence of pairs of the form (src,dst), this
 ;; function returns a sequence where each pair is reversed
 ;; to (dst,src).   I.e.,
@@ -71,6 +65,19 @@
   (let [adj (make-adj edges directed)]
     (loop [done #{}
            to-do #{v-start}]
+      ;; CHALLENGE: student must complete the implementation.
+      (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+      )))
+
+  
+(defn partition-vertices-by-distance
+  "Returns a hash-map which assoicates a distance to the set
+  of verticies that distance from the given v-start"
+  [edges v-start directed]
+  (let [adj (make-adj edges directed)]
+    (loop [f 1
+           m {0 #{v-start}}
+           seen #{v-start}]
       ;; CHALLENGE: student must complete the implementation.
       (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
       )))
