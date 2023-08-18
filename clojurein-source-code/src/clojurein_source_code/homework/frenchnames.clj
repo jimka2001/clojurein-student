@@ -1,6 +1,5 @@
 (ns clojurein-source-code.homework.frenchnames
   (:require [clojure.string :refer [lower-case split index-of]]
-            [clojurein-source-code.common.util :refer [fff]]
             [clojure.java.io :as io]
             [clojure.pprint :refer [cl-format]]))
 
