@@ -2,7 +2,6 @@ SRC = ${PWD}/../clojurein/.
 DST = ${PWD}/../clojurein-student/.
 
 all:
-	cp ${SRC}/doc/*.pdf ./doc/.
 	cp ${SRC}/clojurein-source-code/project.clj ./clojurein-source-code/project.clj
 	cp -r ${SRC}/clojurein-source-code/resources/France-baby-names ./clojurein-source-code/resources/.
 	cp -r ${SRC}/clojurein-source-code/test/* ./clojurein-source-code/test/.
