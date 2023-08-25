@@ -9,12 +9,6 @@
 ;; the closed form formula for the size of the n'th slice.
 ;; Your assignment is to do the calculation iteratively.
 
-(defn cmp-pairs
-  "return true if the 2nd element in p1 is strictly greater than the 2nd element in p2"
-  [p1 p2]
-  (throw (ex-info "Missing single expression, not yet implemented" {}))
-)
-
 (defn piece-sizes-rec
   "This function, piece-sizes-rec, uses loop/recur to perform the calculation.
 

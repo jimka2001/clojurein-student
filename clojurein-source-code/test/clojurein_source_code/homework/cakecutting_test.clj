@@ -1,7 +1,7 @@
 (ns clojurein-source-code.homework.cakecutting-test
   (:require [clojurein-source-code.homework.cakecutting :as sut]
-            [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.common.util :refer [member almost-equal]]
+            ;; [clojure.pprint :refer [cl-format]]
+            [clojurein-source-code.common.util :refer [almost-equal]]
             [clojure.test :refer [deftest is testing]]))
 
 

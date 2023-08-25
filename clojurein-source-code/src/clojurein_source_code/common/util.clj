@@ -7,6 +7,17 @@
               ()
               (cons coll (tails (rest coll))))))
 
+(defn time-call
+  "Evaluates thunk and returns a 2-vector [value elapsed-time]
+  where value is the return value of the thunk and elapsed-time
+  is the number of nano it took evaluating the function."
+  [thunk]
+  (let [start (. System (nanoTime))
+        value (thunk)
+        stop (. System (nanoTime))]
+    [value (- stop start)]))
+
+
 (defn member
   "Determines whether the given target is an element of the given sequence (or given set)."
   [target items]

@@ -1,12 +1,12 @@
 (ns clojurein-source-code.homework.triptych
   (:require [clojure.set :refer [union intersection difference]]
-            [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.common.util :refer [tails re-chunk member]]))
+            ;; [clojure.pprint :refer [cl-format]]
+            [clojurein-source-code.common.util :refer [re-chunk member]]))
 
-(def colors  #{"red" "purple" "green"})
-(def shapes #{"oval" "squiggle" "diamond"})
-(def numbers #{"one" "two" "three"})
-(def shadings #{"solid" "striped" "outlined"})
+(def colors  #{:red :purple :green})
+(def shapes #{:oval :squiggle :diamond})
+(def numbers #{:one :two :three})
+(def shadings #{:solid :striped :outlined})
 (def features #{colors  shapes  numbers  shadings})
 
 ;; The sequence of all possible 81 cards.
@@ -68,17 +68,6 @@
   (assert (card? c2) c2)
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
-  )
-
-;; Given a set of 0 or more cards  return a lazy seq (not set) of
-;; Triptychs which can be formed.  The set MIGHT contain
-;; duplicates.  Use find-all-triptychs-as-set if you need
-;; duplicates removed. Beware that sometimes the
-;; same card can appear in two (or more) different Triptychs.
-;; When such is the case each such Triptych should be included
-;; in the return value.
-(defn find-all-triptychs-as-seq
-  [cards]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
   )
