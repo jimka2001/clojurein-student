@@ -1,9 +1,12 @@
 (ns clojurein-source-code.homework.triptych-test
   (:require [clojurein-source-code.homework.triptych :as sut]
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
             [clojure.set :refer [union intersection difference subset?]]
             [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [almost-equal time-call]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is testing use-fixtures]]))
+
+(use-fixtures :each (with-timeout (* 2 60 1000))) ;; 2 minutes timeout
 
 (defmacro test-testing [name & exprs]
   `(testing ~name

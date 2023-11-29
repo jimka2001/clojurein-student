@@ -1,8 +1,10 @@
 (ns clojurein-source-code.homework.reduce-test
   (:require [clojurein-source-code.homework.reduce :as sut]
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is testing use-fixtures]]))
 
+(use-fixtures :each (with-timeout *time-out*))
 
 ;; 2
 (deftest t-running-sum

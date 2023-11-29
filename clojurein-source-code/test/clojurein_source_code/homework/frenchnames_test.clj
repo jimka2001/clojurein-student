@@ -2,8 +2,11 @@
   (:require [clojurein-source-code.homework.frenchnames :as sut]
             [clojurein-source-code.common.util :refer [member]]
             [clojure.pprint :refer [cl-format]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
+            [clojure.test :refer [deftest is testing use-fixtures]]))
 
+;;(use-fixtures :each (with-timeout (* 1 60 1000))) ;; timeout in 1 minute
+(use-fixtures :each (with-timeout (* 10 1000))) ;; timeout in 1 minute
 
 (deftest t-elide
   (testing "elide"

@@ -1,6 +1,9 @@
 (ns clojurein-source-code.homework.recursion-test
   (:require [clojurein-source-code.homework.recursion :as sut]
-            [clojure.test :refer [deftest is testing]]))
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
+            [clojure.test :refer [deftest is testing use-fixtures]]))
+
+(use-fixtures :each (with-timeout *time-out*))
 
 (def recursion-limit 10000000)
 

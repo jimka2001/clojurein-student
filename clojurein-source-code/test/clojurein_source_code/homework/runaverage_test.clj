@@ -1,8 +1,11 @@
 (ns clojurein-source-code.homework.runaverage-test
   (:require [clojurein-source-code.homework.runaverage :as sut]
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [almost-equal]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is testing use-fixtures]]))
+
+(use-fixtures :each (with-timeout *time-out*))
 
 (deftest t-almost-equal-2
   (testing "almost equal 2"

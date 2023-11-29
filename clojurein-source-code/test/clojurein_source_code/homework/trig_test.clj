@@ -1,7 +1,10 @@
 (ns clojurein-source-code.homework.trig-test
   (:require [clojurein-source-code.homework.trig :as sut]
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
             [clojurein-source-code.common.util :refer [almost-equal]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is testing use-fixtures]]))
+
+(use-fixtures :each (with-timeout *time-out*))
 
 (deftest t-cos
   (testing "cos"

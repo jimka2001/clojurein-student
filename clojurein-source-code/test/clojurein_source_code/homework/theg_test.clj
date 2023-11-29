@@ -1,8 +1,10 @@
 (ns clojurein-source-code.homework.theg-test
   (:require [clojurein-source-code.homework.theg :as sut]
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
             [clojurein-source-code.common.util :refer [member]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is testing use-fixtures]]))
 
+(use-fixtures :each (with-timeout *time-out*))
 
 (deftest t-reversed-edges
   (testing "reversed edges"

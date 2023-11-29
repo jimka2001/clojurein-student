@@ -1,6 +1,7 @@
 (ns clojurein-source-code.homework.factors
   (:require [clojure.pprint :refer [cl-format]]
-            [clojure.math :refer [sqrt ceil]]))
+            [clojure.math :refer [sqrt ceil]]
+            [clojurein-source-code.common.util :refer [re-chunk]]))
 
 (defn prime-factors
   "Return a vector of positive integers, each >= 2,

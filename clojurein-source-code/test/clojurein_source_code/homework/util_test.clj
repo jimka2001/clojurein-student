@@ -1,7 +1,10 @@
 (ns clojurein-source-code.homework.util-test
   (:require [clojurein-source-code.common.util :as sut]
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is testing use-fixtures use-fixtures]]))
+
+(use-fixtures :each (with-timeout *time-out*))
 
 (deftest t-tails
   (testing "tails"
@@ -62,3 +65,4 @@
   (testing "almost equal"
     (is (= true ((sut/almost-equal 0.01) 1.0 1.00001)))
     (is (= false ((sut/almost-equal 0.01) 1.0 2.00001)))))
+

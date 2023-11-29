@@ -1,24 +1,29 @@
 (ns clojurein-source-code.homework.factors-test
   (:require [clojurein-source-code.homework.factors :as sut]
             [clojure.pprint :refer [cl-format]]
+            [clojurein-source-code.common.util :refer [re-chunk]]
             [clojure.math :refer [sqrt ceil]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
+            [clojure.test :refer [deftest is testing use-fixtures]]))
+
+(use-fixtures :each (with-timeout *time-out*))
 
 (defn prime?
   [p]
   (and (int? p)
        (< 1 p)
        (or (= p 2)
-           (empty? (filter (fn [f]
-                             (= 0 (mod p f)))
-                           (range 2 (inc (ceil (sqrt p)))))))))
+           (and (not= 0 (mod p 2))
+                (empty? (filter (fn [f]
+                                  (= 0 (mod p f)))
+                                (re-chunk 1 (range 3 (inc (sqrt p)) 2))))))))
 
 
 ;; code from https://stackoverflow.com/questions/22440673/picking-random-elements-from-a-vector
 (defn choose-random [r v]
   (mapv v (repeatedly r #(rand-int (count v)))))
 
-(def some-primes (into [] (filter prime? (range 2 500))))
+(def some-primes (into [] (cons 2 (filter prime? (range 3 500 2)))))
 
 ;; prime-factors
 
@@ -51,7 +56,10 @@
             composite (reduce *' primes)
             fs (sut/prime-factors composite)]
         (is (= (sort fs)
-               (sort primes)))))))
+               (sort primes))
+            (cl-format nil "for n=~A computed factors ~A but expecting ~A"
+                       composite (sort fs) (sort primes))
+            )))))
       
               
       
