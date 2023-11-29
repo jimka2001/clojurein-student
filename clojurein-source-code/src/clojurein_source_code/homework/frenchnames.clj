@@ -80,12 +80,12 @@
 (defn count-names-in-year-range
   "count the number of babies born between year-min and year-max (including both year-min and year-max)
    of the given gender and name.
-  Return an integer.
-  The parameter elide, indicates (as above) whether to consider names
+   Return an integer.
+   The parameter elide, indicates (as above) whether to consider names
     such as \"jerome\" and \"jérôme\" as the same or different.
-  If elide is true, then \"jerome\" and \"jérôme\" are considered the same.
-  If elide is false, then \"jerome\" and \"jérôme\" are considered to be different names.
-  "
+   If elide is true, then \"jerome\" and \"jérôme\" are considered the same.
+   If elide is false, then \"jerome\" and \"jérôme\" are considered to be different names.
+   "
   [name gender year-min year-max elide]
   (let [names (baby-names-per-year name gender elide)]
     ;; CHALLENGE: student must complete the implementation.
@@ -93,17 +93,17 @@
     ))
 
 (defn hyphenated-names
-  ;; Many French names are hyphenated such as "jean-albert" and "anne-marie".
-  ;; Given a name such as "jean" return all other names X such that "jean-X" or "X-jean"
-  ;; is a name registered in the resource data base.
-  ;; We only care about exact names.  for example "jean-jerome" and "jean-jérôme" are different.
-  ;; Do not attempt to elide names.
-  ;; Careful!  If the given baseName never appears as some hyphenated form,
-  ;;   then the empty Set should be returned.
-  ;; Careful!  Some names have multiple hyphens:  e.g., abd-el-kader
-  ;; Ignore any line for which year = XXXX.
-  ;; WARNING some name might be hyphenated with itself.  E.g. jean-jean or marie-marie.
-  ;;  Read the instructions carefully to understand what to do in this case.
+  "Many French names are hyphenated such as \"jean-albert\" and \"anne-marie\".
+   Given a name such as \"jean\" return all other names X such that \"jean-X\" or \"X-jean\"
+   is a name registered in the resource data base.
+   We only care about exact names.  for example \"jean-jerome\" and \"jean-jérôme\" are different.
+   Do not attempt to elide names.
+   Careful!  If the given baseName never appears as some hyphenated form,
+     then the empty Set should be returned.
+   Careful!  Some names have multiple hyphens:  e.g., abd-el-kader
+   Ignore any line for which year = XXXX.
+   WARNING some name might be hyphenated with itself.  E.g. jean-jean or marie-marie.
+   Read the instructions carefully to understand what to do in this case."
   [base-name]
   (assert (= base-name (lower-case base-name))
           (cl-format false "hyphenated-names must be called with lower case name, not [~A]" base-name))

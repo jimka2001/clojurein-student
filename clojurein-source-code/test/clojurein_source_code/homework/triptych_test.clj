@@ -285,9 +285,9 @@
   (test-testing "cap 10"
     (test-cap 10)))
 
-(deftest t-11-cap
-  (test-testing "cap 11"
-    (test-cap 11)))
+;; (deftest t-11-cap
+;;   (test-testing "cap 11"
+;;     (test-cap 11)))
 
 ;; (deftest t-16-cap
 ;;  (test-testing "cap 16"

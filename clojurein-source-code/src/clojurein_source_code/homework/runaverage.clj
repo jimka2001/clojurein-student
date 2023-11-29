@@ -3,8 +3,7 @@
 
   
 (defn run-average
-  "
-  run-average returns a value indicating the running average of a given
+  "run-average returns a value indicating the running average of a given
   list of floating-point numbers.  The average of how many numbers is determined
   by the given run-length.   E.g., if run-ength==3, then we want to calculate
   successive averages of 3 consecutive numbers.

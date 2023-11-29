@@ -3,7 +3,7 @@
 
   
 (defn harmonic-sum
-  ";; Compute the sum of reciprocals of the numbers in the given list
+  "Compute the sum of reciprocals of the numbers in the given list;
     e.g. harmonic-sum([1  2  4  7]) =   1.0/1 + 1.0/2 + 1.0/4 + 1.0/7
     Recall that the sum of an empty list is 0 .
    The harmonic sum of an empty list is meaningless.

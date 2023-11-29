@@ -3,7 +3,7 @@
 
 
 (defn sum-by-simple-recursion
-  ""
+  "Use simple recursion to sum the elements in a given list"
   [nums]
   (if (empty? nums)
     0
@@ -12,7 +12,7 @@
                                 ))))
 
 (defn sum-by-loop-recur
-  ""
+  "Use loop/recur to sume the elements in a given list"
   [nums]
   (loop [acc 0
          nums nums]
@@ -24,14 +24,14 @@
 
 
 (defn sum-by-reduce
-  ""
+  "Use reduce to sum the elements in a given list"
   [nums]
   (reduce (throw (ex-info "Missing single expression, not yet implemented" {}))
           (throw (ex-info "Missing single expression, not yet implemented" {}))
           ))
 
 (defn product-by-simple-recursion
-  ""
+  "Use simple recursion to compute the productuct (multiplicative) of the elements in a given list"
   [nums]
   (if (empty? nums)
     (throw (ex-info "Missing single expression, not yet implemented" {}))
@@ -41,7 +41,7 @@
                  )))
 
 (defn product-by-loop-recur
-  ""
+  "Use loop/recur to compute the productuct (multiplicative) of the elements in a given list"
   [nums]
   (loop [acc (throw (ex-info "Missing single expression, not yet implemented" {}))
          nums (throw (ex-info "Missing single expression, not yet implemented" {}))
@@ -55,7 +55,7 @@
 
 
 (defn product-by-reduce
-  ""
+  "Use reduce recursion to compute the productuct (multiplicative) of the elements in a given list"
   [nums]
   (reduce (throw (ex-info "Missing single expression, not yet implemented" {}))
           (throw (ex-info "Missing single expression, not yet implemented" {}))

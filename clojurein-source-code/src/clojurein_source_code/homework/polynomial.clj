@@ -88,6 +88,7 @@
     (throw (ex-info "Missing single expression, not yet implemented" {}))
     ))
 
+
 (defn poly-almost-equal
   "detect whether two polynomials are close enough to qualify
   as equal   i.e.  their maximum distance of the cooef of a power is less than epsilon"
