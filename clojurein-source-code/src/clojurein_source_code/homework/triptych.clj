@@ -68,6 +68,17 @@
   (assert (card? c2) c2)
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  )
+
+(defn find-all-triptychs-as-seq
+  "Given a set of 0 or more cards  return a lazy seq (not set) of
+  Triptychs which can be formed.  The set MIGHT contain
+  duplicates.  Use find-all-triptychs-as-set if you need
+  duplicates removed. Beware that sometimes the
+  same card can appear in two (or more) different Triptychs.
+  When such is the case each such Triptych should be included
+  in the return value."
+  [cards]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
   )

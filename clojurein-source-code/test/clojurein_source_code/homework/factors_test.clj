@@ -3,10 +3,8 @@
             [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [re-chunk]]
             [clojure.math :refer [sqrt ceil]]
-            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
-            [clojure.test :refer [deftest is testing use-fixtures]]))
-
-(use-fixtures :each (with-timeout *time-out*))
+            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
+            [clojure.test :refer [deftest is testing]]))
 
 (defn prime?
   [p]
@@ -28,7 +26,7 @@
 ;; prime-factors
 
 (deftest t-trivial-prime-factors
-  (testing "trivialprime-factors"
+  (testing-with-timeout "trivialprime-factors"
     (is (= [] (sut/prime-factors 1)))
     (is (= [2] (sut/prime-factors 2)))
     (is (= [3] (sut/prime-factors 3)))
@@ -36,7 +34,7 @@
 
 
 (deftest t-prime-factors
-  (testing "prime-factors"
+  (testing-with-timeout "prime-factors"
     (doseq [k (range 2 100 3)
             :let [fs (sut/prime-factors k)
                   product (reduce * fs)]]
@@ -49,7 +47,7 @@
                        p k fs))))))
 
 (deftest t-prime-factors-2
-  (testing "prime-factors-2"
+  (testing-with-timeout "prime-factors-2"
     (dotimes [_ 5000]
       (let [n (inc (rand-int 12))
             primes (choose-random n some-primes)
@@ -63,3 +61,14 @@
       
               
       
+(deftest t-prime-factors-bigint
+  (testing-with-timeout "prime-factors-bigint"
+    (let [factors [2 2 2
+                   3 3 3
+                   5 5 5
+                   7 7 7
+                   11 11 11
+                   13 13 13
+                   17 17 17
+                   19 19 19]]
+      (is (= factors (sort (sut/prime-factors (reduce *' factors))))))))

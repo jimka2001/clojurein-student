@@ -1,18 +1,17 @@
 (ns clojurein-source-code.homework.triptych-test
   (:require [clojurein-source-code.homework.triptych :as sut]
-            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
+            [clojurein-source-code.homework.util :refer [*time-out* testing-with-timeout]]
             [clojure.set :refer [union intersection difference subset?]]
             [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [almost-equal time-call]]
-            [clojure.test :refer [deftest is testing use-fixtures]]))
-
-(use-fixtures :each (with-timeout (* 2 60 1000))) ;; 2 minutes timeout
+            [clojure.test :refer [deftest is]]))
 
 (defmacro test-testing [name & exprs]
-  `(testing ~name
-     (println [:testing ~name])
-     (print "   ")
-     (time (do ~@exprs))))
+  `(testing-with-timeout ~name
+     (binding [*time-out* 2000]
+       (println [:testing ~name])
+       (print "   ")
+       (time (do ~@exprs)))))
 
 (defn extract-feature [feature-values card]
   (first (intersection feature-values card)))

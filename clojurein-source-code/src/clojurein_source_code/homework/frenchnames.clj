@@ -34,9 +34,9 @@
                   name)))
 
 (defn baby-names-per-year
-  ;; this function returns a Map which maps year to count, where count is
-  ;; the number of babies named nameTarget in that year.  E.g., if
-  ;; fred = (fbabyNamesPerYear "fred" "M"), then (fred 2012)==100 means
+  ;; this function returns a Map which associates year to count, where count is
+  ;; the number of babies named name-target in that year.  E.g., if
+  ;; fred = (baby-names-per-year "fred" "M"), then (fred 2012)==100 means
   ;; there were 100 boy babies born named fred in 2012."
   ([name-target gender-target]
    (throw (ex-info "Missing single expression, not yet implemented" {}))
@@ -98,8 +98,8 @@
    is a name registered in the resource data base.
    We only care about exact names.  for example \"jean-jerome\" and \"jean-jérôme\" are different.
    Do not attempt to elide names.
-   Careful!  If the given baseName never appears as some hyphenated form,
-     then the empty Set should be returned.
+   Careful!  If the given base-name never appears as some hyphenated form,
+     then the empty set should be returned.
    Careful!  Some names have multiple hyphens:  e.g., abd-el-kader
    Ignore any line for which year = XXXX.
    WARNING some name might be hyphenated with itself.  E.g. jean-jean or marie-marie.
@@ -113,7 +113,10 @@
       ;; remember to drop the first line of file: sexe;preusuel;annais;nombre
       ;; skip lines where name is _PRENOMS_RARES
       ;; skip lines where the year is XXXX
-      ;; names are in caps (e.g., FABIENNE) but nameTarget will be given as lower case (e.g., fabienne)
-      ;; CHALLENGE: student must complete the implementation.
-      (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+      ;; names are in caps (e.g., FABIENNE) but name-target will be given as lower case (e.g., fabienne)
+      (set (for
+               ;; CHALLENGE: student must complete the implementation.
+               (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+             )
+       )
       )))

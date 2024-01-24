@@ -1,14 +1,13 @@
 (ns clojurein-source-code.homework.runaverage-test
   (:require [clojurein-source-code.homework.runaverage :as sut]
-            [clojurein-source-code.homework.util :refer [with-timeout *time-out*]]
+            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [almost-equal]]
-            [clojure.test :refer [deftest is testing use-fixtures]]))
+            [clojure.test :refer [deftest is testing]]))
 
-(use-fixtures :each (with-timeout *time-out*))
 
 (deftest t-almost-equal-2
-  (testing "almost equal 2"
+  (testing-with-timeout "almost equal 2"
     (doseq [data ['(1.0  2.0  6.0  4.0  2.4  3.5  7.7)
                   [1.0  2.0  6.0  4.0  2.4  3.5  7.7]]
             :let [calculated  (sut/run-average 2 data)
@@ -20,7 +19,7 @@
                   control)))))
 
 (deftest t-almost-equal-3
-  (testing "almost equal 3 "
+  (testing-with-timeout "almost equal 3 "
     (doseq [data ['(1.0  2.0  6.0  4.0  2.4  3.5  7.7)
                   [1.0  2.0  6.0  4.0  2.4  3.5  7.7]]
             :let [calculated (sut/run-average 3 data)
@@ -33,7 +32,7 @@
                   control)))))
 
 (deftest t-almost-equal-4
-  (testing "almost equal 4"
+  (testing-with-timeout "almost equal 4"
     (doseq [data ['(1.0  2.0  6.0  4.0  2.4  3.5  7.7)
                   [1.0  2.0  6.0  4.0  2.4  3.5  7.7]]
             :let [calculated (sut/run-average 4 data)
@@ -51,7 +50,7 @@
                   control)))))
 
 (deftest t-almost-equal-5
-  (testing "almost equal 5"
+  (testing-with-timeout "almost equal 5"
     (doseq [data ['(1.0  2.0  6.0  4.0  2.4  3.5  7.7)
                   [1.0  2.0  6.0  4.0  2.4  3.5  7.7]]
             :let [calculated (sut/run-average 5 data)
