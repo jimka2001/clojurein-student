@@ -12,4 +12,5 @@ clojurein-source-code/.prepl-port
 clojurein-source-code/.hgignore
 clojurein-source-code/.hg/
 TEST-*.xml
+*.clj~
 #*.clj#

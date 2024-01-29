@@ -2,10 +2,26 @@
   )
 
   
-;; This function accepts a left which is guaranteed <= right,
-;; and a Boolean function which can be called on any double in the specified range.
-;; bin-search-by-boolean returns a value, x, such that either f(x) is false and
-;;   f(x+delta) is true, or f(x) is true and f(x+delta) is false.
+;; This multi-arity function accepts either [f-step delta] or
+;; [left right f-step delta max-depth].
+;; In either case f-step is a unary function.
+;; step accepts a double and returns a Boolean.
+;; 
+;; If called with [f-step delta], then bin-search-by-boolean attempts
+;; to find doubles left and right to call and return
+;;    (bin-search-by-boolean left right f-step delta false).
+;; It does so by testing at left-=1.0, right=-1.0.  If f-step
+;; returns false at left and right or returns true at left and right
+;; then left and right are doubled, and step is retested.
+;; left and right will continue to be doubled until values are
+;; discovered for which f-step(left) != f-step(right),
+;; in which case (bin-search-by-boolean left right f-step delta false)
+;; is called and returned.
+;; 
+;; In the case of [left right f-step delta max-depth],
+;; we are guaranteed right <= left,
+;; bin-search-by-boolean returns a value, x, such that either f-step(x) is false and
+;;   f-step(x+delta) is true, or f-step(x) is true and f-step(x+delta) is false.
 ;; In the case that max-depth != false, then terminate the recursive search
 ;;   when the specified max-depth is reached.
 ;; false is returned if no such x can be found.
@@ -22,7 +38,7 @@
 ;;   This case is NOT tested in the test cases.
 
 (defn bin-search-by-boolean
-  ([f delta]
+  ([f-step delta]
    ;; the 2-argument clause computes left and right and calls the
    ;; 5-argument entry point with max-depth=false
    (loop [left -1.0
@@ -30,13 +46,13 @@
      ;; CHALLENGE: student must complete the implementation.
      (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
      ))
-  ([left right f delta max-depth]
+  ([left right f-step delta max-depth]
    (assert (<= left right))
    ;; takes a function, f, for which f(left) = false, and f(right) = true,
    ;; finds an x such that f(x)=false, and f(x+delta)= true
 
-   (case (list (boolean (f left))
-               (boolean (f right)))
+   (case (list (boolean (f-step left))
+               (boolean (f-step right)))
      ((true true) (false false))
      false
 
@@ -59,7 +75,7 @@
                     (>= depth max-depth))
                (throw (ex-info "Missing single expression, not yet implemented" {}))
 
-               (f mid)
+               (f-step mid)
                (throw (ex-info "Missing single expression, not yet implemented" {}))
 
                :else

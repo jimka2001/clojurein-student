@@ -12,8 +12,10 @@
 (defn piece-sizes-rec
   "This function, piece-sizes-rec, uses loop/recur to perform the calculation.
 
-  returns a list of [k value] pairs value is the size of the kth piece of pie
-  the list runs from n ... 1
+  returns a list of [k value] pairs where value is the size of the kth piece of pie.
+  0.0 < value < 100.0 which indicates the percentage of the entire pie.  e.g. 0.5
+  indicates half the pie.
+  The list runs from n ... 1.
   The returned list is sorted into order of decreasing slice size."
   []
   (loop [n 1
@@ -29,7 +31,8 @@
                )))))
 
 (defn piece-sizes-reduce
-  "This function, piece-sizes-fold, uses reduce to perform the calculation.
+  "This function, piece-sizes-reduce, uses reduce to compute the same value
+  as computed by piece-sizes-rec.
 
    returns a list of [k value] pairs where value is the size of the kth piece of pie
    the list runs from n ... 1
