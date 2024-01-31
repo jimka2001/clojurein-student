@@ -2,11 +2,11 @@
   (:require [clojurein-source-code.homework.frenchnames :as sut]
             [clojurein-source-code.common.util :refer [member]]
             [clojure.pprint :refer [cl-format]]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
-
 (deftest t-elide
-  (testing "elide"
+  (testing-with-timeout "elide"
     (is (= "jerome"
            (sut/elide-string "jèrome")))
     (is (= "jerome"
@@ -15,14 +15,14 @@
            (sut/elide-string "côme")))))
 
 (deftest t-renomes-rare
-  (testing "prenoms rares"
+  (testing-with-timeout "prenoms rares"
     (is (= {}
            (sut/baby-names-per-year "_prenoms_rares" "M")))
     (is (= {}
            (sut/baby-names-per-year "_prenoms_rares" "F")))))
 
 (deftest t-baby-names-per-year
-  (testing "baby names per year"
+  (testing-with-timeout "baby names per year"
     (let [aaron (sut/baby-names-per-year "aaron" "M")]
       (is (= (get aaron 2019) 2443))
       (is (= (get aaron 2018) 2248))
@@ -36,12 +36,12 @@
       (is (= (fabienne 1962) 4739)))))
 
 (deftest t-count-names-0
-  (testing "count names in year range without elide"
+  (testing-with-timeout "count names in year range without elide"
     (is (= (sut/count-names-in-year-range "aaron"  "M"  1900  2000  false)
            723))))
 
 (deftest t-count-names-1
-  (testing "count names in year range without elide"
+  (testing-with-timeout "count names in year range without elide"
     (is (= (sut/count-names-in-year-range "fabienne"  "M"  1900  2000  false)
            0))
     (is (= (sut/count-names-in-year-range "fabienne"  "F"  1900  2000  false)
@@ -62,7 +62,7 @@
            112773))))
 
 (deftest t-count-names-elide
-  (testing "count names in year range with elide"
+  (testing-with-timeout "count names in year range with elide"
 
     (is (= (sut/count-names-in-year-range "jeremy"  "M"  1900  2000  true)
            121220))
@@ -74,7 +74,7 @@
            112931))))
 
 (deftest t-count-names-2-elide
-  (testing "count names with elide"
+  (testing-with-timeout "count names with elide"
     ;; jerome vs jérôme vs jérome
 
     (is (= {} (sut/baby-names-per-year "jérôme" "M"  true)))
@@ -135,20 +135,20 @@
                        ))))))
 
 (deftest t-hyphenated-0a
-  (testing "hyphenated names 0a"
+  (testing-with-timeout "hyphenated names 0a"
     (is (not (member "jean" (sut/hyphenated-names "jean")))
         "jean-jean only ppaears in a year XXXX which should be ignored")))
 
 (deftest t-hyphenated-0b
-  (testing "hyphenated names 0b"
+  (testing-with-timeout "hyphenated names 0b"
     (is (not (member "cyrille" (sut/hyphenated-names "cyrille"))))))
 
 (deftest t-hyphenated-0c
-  (testing "hyphenated names 0c"
+  (testing-with-timeout "hyphenated names 0c"
     (is (member "marie" (sut/hyphenated-names "marie")))))
 
 (deftest t-hyphenated-1
-  (testing "hyphenated names"
+  (testing-with-timeout "hyphenated names"
 
 
     (let [jean  (sut/hyphenated-names "jean")]

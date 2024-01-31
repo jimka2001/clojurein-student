@@ -34,15 +34,24 @@
 
 (defn almost-equal 
   "Returns a binary function which can be used to test whether two
-  given arguments are with a given tolerance of each other."
+  given arguments are within a given tolerance of each other."
   [tolerance]
   (assert (float? tolerance))
   (fn [x y]
-    (assert (or (integer? x) (float? x)))
-    (assert (or (integer? y) (float? y)))
+    (assert (number? x))
+    (assert (number? y))
     (or (= x y)
         (<= (abs (- x y)) tolerance))))
 
+(defn almost-equal-seq
+  "Returns a binary function which can be used to test whether two
+  given sequence arguments are element-wise within a given tolerance of each other."
+  [tolerance]
+  (assert (float? tolerance))
+  (let [ae (almost-equal tolerance)]
+    (fn [x-seq y-seq]
+      (and (= (count x-seq) (count y-seq))
+           (every? true? (map ae x-seq y-seq))))))
 
 
 (defn re-chunk 
@@ -55,3 +64,4 @@
       (let [cb (chunk-buffer n)]
         (doseq [x s] (chunk-append cb x))
         (chunk-cons (chunk cb) (re-chunk n (drop n xs)))))))
+

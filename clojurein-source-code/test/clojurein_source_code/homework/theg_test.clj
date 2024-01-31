@@ -1,11 +1,12 @@
 (ns clojurein-source-code.homework.theg-test
   (:require [clojurein-source-code.homework.theg :as sut]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojurein-source-code.common.util :refer [member]]
             [clojure.test :refer [deftest is testing]]))
 
 
 (deftest t-reversed-edges
-  (testing "reversed edges"
+  (testing-with-timeout "reversed edges"
     (is (= (sut/reversed-edges ())
            ()))
     (is (= (sut/reversed-edges '((1 2)))
@@ -25,7 +26,7 @@
            '((2 1) (4 3))))))
 
 (deftest t-building
-  (testing "building adjacency list"
+  (testing-with-timeout "building adjacency list"
     (is (member 2 (get (sut/make-adj [[1 2]] false) 1)))
     (is (member 1 (get (sut/make-adj [[1 2]] false) 2)))
     (is (= (sut/make-adj [[1 2]] false)
@@ -47,7 +48,7 @@
 
 
 (deftest t-collect-connected-list
-  (testing "collect connected vertices, list"
+  (testing-with-timeout "collect connected vertices, list"
     (let [edges '((1  2) (3  4) (4  2))]
       (is (= (sut/reachable-vertices edges 1 false)
              #{1  2  3  4}))
@@ -67,7 +68,7 @@
              #{4  2})))))
 
 (deftest t-collect-connected-vector
-  (testing "collect connected vertices, vector"
+  (testing-with-timeout "collect connected vertices, vector"
     (let [edges [[1  2] [3  4]  [4  2]]]
       (is (= (sut/reachable-vertices edges 1 false)
              #{1  2  3  4}))
@@ -88,7 +89,7 @@
 
 
 (deftest t-discovered-graph-list
-  (testing "disconnected graph list"
+  (testing-with-timeout "disconnected graph list"
     ;; now a disconnected graph
     (let [edges '((1 2) (1 3) (1 4) (4 1) 
                   (10.1 11) (10.1 12) (11 12))]
@@ -102,7 +103,7 @@
              #{1 2 3 4})))))
 
 (deftest t-discovered-graph-vector
-  (testing "disconnected graph vector"
+  (testing-with-timeout "disconnected graph vector"
     ;; now a disconnected graph
     (let [edges [[1 2] [1 3] [1 4] [4 1]
                  [10.1 11] [10.1 12] [11 12]]]
@@ -116,7 +117,7 @@
              #{1 2 3 4})))))
 
 (deftest t-disconnected-graph-list
-  (testing "disconnected graph by List"
+  (testing-with-timeout "disconnected graph by List"
     ;; now a disconnected graph
     (let [edges '((1 2) (1 3) (1 4) (4 1) 
                  (10 11) (10 12) (11 12))]
@@ -130,7 +131,7 @@
              #{ 1 2 3 4})))))
 
 (deftest t-disconnectted-graph-doubles
-  (testing "disconnected graph with doubles"
+  (testing-with-timeout "disconnected graph with doubles"
     ;; now a disconnected graph
     (let [edges '((1.1 2.2) (1.1 3.3) (1.1 4.4) (4.4 1.1) 
                   (10.1 11.1) (10.1 12.2) (11.1 12.2))]
@@ -144,7 +145,7 @@
              #{1.1 2.2 3.3 4.4})))))
 
 (deftest t-disconnecdted-graph-list-string
-  (testing "disconnected graph with List[String]"
+  (testing-with-timeout "disconnected graph with List[String]"
     ;; now a disconnected graph
     (let [edges '(("rosalie" "gilbert") ("rosalie" "theophile") ("rosalie" "fred") ("fred" "rosalie") 
                                   ("germaine" "john") ("germaine" "emilienne") ("john" "emilienne"))]
@@ -158,7 +159,7 @@
              #{"rosalie" "gilbert" "theophile" "fred"})))))
 
 (deftest t-disconnected-graph-vector-string
-  (testing "disconnected graph with Vector[String]"
+  (testing-with-timeout "disconnected graph with Vector[String]"
     ;; now a disconnected graph
     (let [edges [["rosalie" "gilbert"] ["rosalie" "theophile"] ["rosalie" "fred"] ["fred" "rosalie"]
                  ["germaine" "john"] ["germaine" "emilienne"] ["john" "emilienne"]]]
@@ -172,7 +173,7 @@
              #{"rosalie" "gilbert" "theophile" "fred"})))))
 
 (deftest t-partition-by-dist-directed
-  (testing "partition vertices by distance directed"
+  (testing-with-timeout "partition vertices by distance directed"
     (is (= {0 #{0}
             1 #{1 2}}
            (sut/partition-vertices-by-distance [[0 1] [0 2]] 0 true)))
@@ -222,7 +223,7 @@
                                                0 true)))))
 
 (deftest t-partition-by-dist-undirected
-  (testing "sut/partition-vertices-by-distance non-directed"
+  (testing-with-timeout "sut/partition-vertices-by-distance non-directed"
     (is (= {0   #{0}
             1   #{1 2}}
            (sut/partition-vertices-by-distance '((0 1) (0 2)) 

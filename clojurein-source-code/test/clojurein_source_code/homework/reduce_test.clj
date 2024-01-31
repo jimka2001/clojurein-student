@@ -1,12 +1,14 @@
 (ns clojurein-source-code.homework.reduce-test
   (:require [clojurein-source-code.homework.reduce :as sut]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
             [clojure.test :refer [deftest is testing]]))
 
 
+
 ;; 2
 (deftest t-running-sum
-  (testing "running sum"
+  (testing-with-timeout "running sum"
     (is (= '((1 1) (2 3) (3 6))
            (sut/running-sum '(1 2 3))))
     (is (= ()
@@ -18,7 +20,7 @@
 
 ;; 3
 (deftest t-harmonic-sum
-  (testing "harmonic sum"
+  (testing-with-timeout "harmonic sum"
     (is (= 1.0
            (sut/harmonic-sum '(1))))
     (is (= (/ 1.0 2)
@@ -36,7 +38,7 @@
 
 ;; 4
 (deftest t-plus
-  (testing "plus"
+  (testing-with-timeout "plus"
     (is (= [0.0 0.0]
            (sut/plus [0.0 0.0] [0.0 0.0])))
     (is (= [4.0 6.0]
@@ -45,7 +47,7 @@
 
 ;; 5
 (deftest t-plus-identity
-  (testing "plus_identity"
+  (testing-with-timeout "plus_identity"
     (doseq [re (range -100 100)
             im (range -100 100)
             :let [z [(float re) (float im)]]]
@@ -54,7 +56,7 @@
 
 ;; 6
 (deftest t-times
-  (testing "times"
+  (testing-with-timeout "times"
     (is (= [12.0  13.0]
            (sut/times [1.0 0.0] [12.0 13.0])))
     (is (= [-1.0   0.0]
@@ -64,7 +66,7 @@
 
 ;; 7
 (deftest t-times-identity
-  (testing "times_identity"
+  (testing-with-timeout "times_identity"
     (doseq [re (range -100 100)
             im (range -100 100)
             :let [z [(float re) (float im)]]]
@@ -73,7 +75,7 @@
 
 ;; 8
 (deftest t-singleton-list
-  (testing "plus singleton list"
+  (testing-with-timeout "plus singleton list"
     (doseq [re (range -100 100)
             im (range -100 100)
             :let [z [(float re) (float im)]]]
@@ -83,7 +85,7 @@
 
 ;; 9
 (deftest t-plus-list
-  (testing "plus list"
+  (testing-with-timeout "plus list"
     (is (= [0.0 0.0]
            (sut/plus-list [])))
     (is (= [1.0 2.0]
@@ -93,7 +95,7 @@
 
 ;; 10
 (deftest t-times-list
-  (testing "times list"
+  (testing-with-timeout "times list"
     (is (= [1.0 0.0]
            (sut/times-list [])))
     (is (= [1.0 2.0]
@@ -105,7 +107,7 @@
 
 ;; 11
 (deftest t-times-singleton-list
-  (testing "times singleton list"
+  (testing-with-timeout "times singleton list"
     (doseq [re (range -100 100)
             im (range -100 100)
             :let [z [(float re) (float im)]]]

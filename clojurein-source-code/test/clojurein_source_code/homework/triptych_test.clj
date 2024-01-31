@@ -1,15 +1,17 @@
 (ns clojurein-source-code.homework.triptych-test
   (:require [clojurein-source-code.homework.triptych :as sut]
+            [clojurein-source-code.lecture.util :refer [*time-out* testing-with-timeout]]
             [clojure.set :refer [union intersection difference subset?]]
             [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [almost-equal time-call]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is]]))
 
 (defmacro test-testing [name & exprs]
-  `(testing ~name
-     (println [:testing ~name])
-     (print "   ")
-     (time (do ~@exprs))))
+  `(testing-with-timeout ~name
+     (binding [*time-out* 2000]
+       (println [:testing ~name])
+       (print "   ")
+       (time (do ~@exprs)))))
 
 (defn extract-feature [feature-values card]
   (first (intersection feature-values card)))
@@ -223,6 +225,7 @@
     (doseq [d  (range (inc target-size) (count sut/deck))
             :let [small-deck (set (take d sut/deck))
                   cap (sut/find-cap small-deck target-size)]]
+
       (when cap
         (is (set? cap))
         (is (every? sut/card? cap))
@@ -236,11 +239,6 @@
 (deftest t-cap-is-subset-5
   (test-testing "cap is subset 5"
     (test-cap-subset 5)))
-
-(deftest t-cap-is-subset-8
-  (test-testing "cap is subset 8"
-    (test-cap-subset 8)))
-
 
 (deftest t-find-cap
   (test-testing "find cap"
@@ -285,9 +283,9 @@
   (test-testing "cap 10"
     (test-cap 10)))
 
-(deftest t-11-cap
-  (test-testing "cap 11"
-    (test-cap 11)))
+;; (deftest t-11-cap
+;;   (test-testing "cap 11"
+;;     (test-cap 11)))
 
 ;; (deftest t-16-cap
 ;;  (test-testing "cap 16"

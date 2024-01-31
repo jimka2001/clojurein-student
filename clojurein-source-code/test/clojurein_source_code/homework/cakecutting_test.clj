@@ -2,8 +2,8 @@
   (:require [clojurein-source-code.homework.cakecutting :as sut]
             ;; [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [almost-equal]]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
-
 
 (def reference
   '((10 0.063281565095552948)  (11 0.06218749444597419)  (9 0.06212536907689728)  (12 0.060378403698454944) 
@@ -48,13 +48,13 @@
          (map first (take 10 data)))))
 
 (deftest t-reference
-  (testing "reference"
+  (testing-with-timeout "reference"
     (check reference)))
 
 (deftest t-recursive
-  (testing "recursive cake cutting"
+  (testing-with-timeout "recursive cake cutting"
     (check (sut/piece-sizes-rec))))
 
 (deftest t-reducing 
-  (testing "folding cake cutting"
+  (testing-with-timeout "folding cake cutting"
     (check (sut/piece-sizes-reduce))))
