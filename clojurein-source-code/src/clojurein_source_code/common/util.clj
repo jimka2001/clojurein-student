@@ -65,3 +65,14 @@
         (doseq [x s] (chunk-append cb x))
         (chunk-cons (chunk cb) (re-chunk n (drop n xs)))))))
 
+(defn find-if
+  "Find the first element in the sequence which makes the predicate true.
+  If such an item is found, a singleton list of the item is returned,
+  otherwise () is returned.
+  "
+  [col f]
+  (reduce (fn [_ item] (if (f item)
+                           (reduced (list item))
+                           ()))
+          col))
+
