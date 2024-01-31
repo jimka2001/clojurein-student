@@ -1,6 +1,7 @@
 (ns clojurein-source-code.lecture.baby-name-plot
   (:require [clojure.string :refer [split]]
             [clojure.java.io :as io]
+            [clojurein-source-code.common.util :refer [find-if]]
             [clojurein-source-code.lecture.vega-plot :as vp]))
 
 (defn baby-name-plot
@@ -45,11 +46,9 @@
                                  :when (= gender gender-target)]
                              [(Integer/parseInt year-raw) name (Integer/parseInt count-raw)]))))
         grouped (group-by first triples)]
-    (for [year (keys grouped)
-          :let [triples (get grouped year)
-                found-triple (first (filter (fn [[_ name _]] (= name name-target))
-                                     triples))]
-          :when found-triple
+    (for [[year triples] grouped
+          found-triple (find-if (fn [[_ name _]] (= name name-target))
+                                triples)
           :let [born-count (reduce + (map (fn [[_ _ count]] count) triples))]]
       [year (/ (* 100.0 (nth found-triple 2))
                born-count)])))
