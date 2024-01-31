@@ -1,6 +1,6 @@
 (ns clojurein-source-code.homework.theg-test
   (:require [clojurein-source-code.homework.theg :as sut]
-            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojurein-source-code.common.util :refer [member]]
             [clojure.test :refer [deftest is testing]]))
 

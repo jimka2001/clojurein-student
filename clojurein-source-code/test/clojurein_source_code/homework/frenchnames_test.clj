@@ -2,7 +2,7 @@
   (:require [clojurein-source-code.homework.frenchnames :as sut]
             [clojurein-source-code.common.util :refer [member]]
             [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
 (deftest t-elide

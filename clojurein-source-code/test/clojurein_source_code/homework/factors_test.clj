@@ -3,7 +3,7 @@
             [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [re-chunk]]
             [clojure.math :refer [sqrt ceil]]
-            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
 (defn prime?

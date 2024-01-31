@@ -2,7 +2,7 @@
   (:require [clojurein-source-code.homework.binarysearch :as sut]
             [clojure.pprint :refer [cl-format]]
             [clojurein-source-code.common.util :refer [almost-equal]]
-            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
 (deftest t-tolerance

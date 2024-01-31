@@ -2,7 +2,8 @@
   :description "Source code for Clojurein, Introduction to Clojure Elective"
   :license {:name "BSD"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
-  :dependencies [[org.clojure/clojure "1.11.1"]]
+  :dependencies [[org.clojure/clojure "1.11.1"]
+                 [metasoarous/oz "2.0.0-alpha5"]]
   :plugins [[lein-exec "0.3.7"]]
   :main ^:skip-aot clojurein-source-code.core
   :target-path "target/%s"

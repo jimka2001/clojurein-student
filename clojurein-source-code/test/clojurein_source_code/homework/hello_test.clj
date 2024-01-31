@@ -1,7 +1,7 @@
 (ns clojurein-source-code.homework.hello-test
   (:require [clojurein-source-code.homework.hello :as sut]
             [clojure.string :as string]
-            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
 

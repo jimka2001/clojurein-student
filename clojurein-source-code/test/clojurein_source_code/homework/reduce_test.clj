@@ -1,6 +1,6 @@
 (ns clojurein-source-code.homework.reduce-test
   (:require [clojurein-source-code.homework.reduce :as sut]
-            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
+            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
             [clojure.test :refer [deftest is testing]]))
 
