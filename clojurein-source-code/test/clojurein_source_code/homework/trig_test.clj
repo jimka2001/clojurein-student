@@ -1,7 +1,6 @@
 (ns clojurein-source-code.homework.trig-test
   (:require [clojurein-source-code.homework.trig :as sut]
-            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
-            [clojurein-source-code.common.util :refer [almost-equal]]
+            [clojurein-source-code.common.util :refer [almost-equal testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is]]))
 
 

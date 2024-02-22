@@ -1,8 +1,7 @@
 (ns clojurein-source-code.homework.runaverage-test
   (:require [clojurein-source-code.homework.runaverage :as sut]
-            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.common.util :refer [almost-equal]]
+            [clojurein-source-code.common.util :refer [almost-equal testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
 

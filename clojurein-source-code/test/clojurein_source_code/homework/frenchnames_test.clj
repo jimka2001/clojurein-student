@@ -1,8 +1,7 @@
 (ns clojurein-source-code.homework.frenchnames-test
   (:require [clojurein-source-code.homework.frenchnames :as sut]
-            [clojurein-source-code.common.util :refer [member]]
+            [clojurein-source-code.common.util :refer [member testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
 (deftest t-elide

@@ -1,10 +1,8 @@
 (ns clojurein-source-code.homework.polynomial-test
   (:require [clojurein-source-code.homework.polynomial :as sut]
-            [clojurein-source-code.common.util :refer [almost-equal almost-equal-seq]]
+            [clojurein-source-code.common.util :refer [almost-equal almost-equal-seq testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is]]))
-
 
 
 (defn random-polynomial [order]
