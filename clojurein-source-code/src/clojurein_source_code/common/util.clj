@@ -68,11 +68,11 @@
 (defn find-if
   "Find the first element in the sequence which makes the predicate true.
   If such an item is found, a singleton list of the item is returned,
-  otherwise () is returned.
+  otherwise nil is returned.
   "
-  [col f]
+  [f col]
   (reduce (fn [_ item] (if (f item)
                            (reduced (list item))
-                           ()))
+                           nil))
+          nil
           col))
-

@@ -2,7 +2,9 @@
   (:require [clojure.string :refer [split]]
             [clojure.java.io :as io]
             [clojurein-source-code.common.util :refer [find-if]]
+            ;; [clojure.tools.trace :as trace] ;; (trace/untrace-ns 'oz.core)
             [clojurein-source-code.lecture.vega-plot :as vp]))
+
 
 (defn baby-name-plot
   "Generate plot of single baby name."
@@ -12,23 +14,33 @@
                (assert s (format "resource not found: %s" txt-file))
                (with-open [r (io/reader s)]
                  (assert r (format "cannot create reader from %s" s))
+                 ;; doall is necessary because (for ...) is lazy,
+                 ;; without the doall, with-open will return a lazy sequence
+                 ;; but close the file.  later when the call-site tries to iterate
+                 ;; through the lazy-sequence, the file will be already closed and
+                 ;; the iteration will fail.
                  (doall (for [line (line-seq r)
-                              :let [[state gender year-raw _name count-raw]  (split line #"[,]")]
-                              :when (= state state-target)
+                              :let [[state-raw gender year-raw name-raw count-raw]
+                                    (split line #"[,]")]
+                              :when (= state-raw state-target)
+                              :when (= name-raw name-target)
                               :when (= gender gender-target)]
-                          [(Integer/parseInt year-raw) (Integer/parseInt count-raw)]))))]
+                          ;; collect an [x y] to plot
+                          [(Integer/parseInt year-raw)
+                           (Integer/parseInt count-raw)]))))]
+
     (vp/series-scatter-plot "Baby Name data" ;; chart-title
                             "Year" ;; x-label
                             "Total Names" ;; y-label
                             [[(format "%s-%s-%s" name-target gender-target state-target) data]])))
           
 (defn sample-plot-1 []
-  (baby-name-plot "John" "M" "CA"))
+  (vp/view-image (baby-name-plot "John" "M" "CA")))
 
-;; (sample-plot-1)
+(sample-plot-1)
 
 (defn baby-name-normalized-data
-  "return a seqeunce of pairs [year percentage] where percentage measure
+  "return a seqeunce of pairs [year percentage] where percentage measures
   the fraction of babies born in the specified year having the name `name-target`
   and the gender `gender-target` in the state `state-target`.
   For example a point if [\"John\" \"M\" \"MS\"] is specified,
@@ -40,17 +52,30 @@
                   (assert s (format "resource not found: %s" txt-file))
                   (with-open [r (io/reader s)]
                     (assert r (format "cannot create reader from %s" s))
+                    ;; doall is necessary because (for ...) is lazy,
+                    ;; without the doall, with-open will return a lazy sequence
+                    ;; but close the file.  later when the call-site tries to iterate
+                    ;; through the lazy-sequence, the file will be already closed and
+                    ;; the iteration will fail.
                     (doall (for [line (line-seq r)
-                                 :let [[state gender year-raw name count-raw]  (split line #"[,]")]
+                                 :let [[state gender year-raw name count-raw]
+                                       (split line #"[,]")]
                                  :when (= state state-target)
                                  :when (= gender gender-target)]
-                             [(Integer/parseInt year-raw) name (Integer/parseInt count-raw)]))))
-        grouped (group-by first triples)]
+                             ;; collect a hash indicating one year/name/count triple
+                             {:year (Integer/parseInt year-raw)
+                              :name name
+                              :count (Integer/parseInt count-raw)}))))
+        ;; group the hashes by year
+        grouped (group-by :year triples)]
     (for [[year triples] grouped
-          found-triple (find-if (fn [[_ name _]] (= name name-target))
+          ;; skip if there fails to be at least one baby with the given name
+          found-triple (find-if (fn [triple] (= (:name triple) name-target))
                                 triples)
-          :let [born-count (reduce + (map (fn [[_ _ count]] count) triples))]]
-      [year (/ (* 100.0 (nth found-triple 2))
+          ;; add up all the babies born this year, all names included
+          :let [born-count (reduce + (map :count triples))]]
+      ;; collect an [x y] pair to plot
+      [year (/ (* 100.0 (:count found-triple))
                born-count)])))
   
 
@@ -70,12 +95,12 @@
                              (baby-name-normalized-data name-target gender-target state-target)])))
 
 (defn sample-plot-2 []
-  (plot-baby-names-normalized "Baby Names 1" [["Juan" "M" "MS"]
-                                            ["Juan" "M" "CA"]])
-  (plot-baby-names-normalized "Baby Names 2" [["Blanche" "F" "MS"]
-                                            ["Minnie"  "F" "MS"]])
-  (plot-baby-names-normalized "Baby Names 3" [["John","M","NY"]])
-  (plot-baby-names-normalized "Baby Names 4" [["Arnold" "M" "FL"]
-                                              ["Arnold" "M" "CA"]]))
+  (vp/view-image (plot-baby-names-normalized "Baby Names 1" [["Juan" "M" "MS"]
+                                                             ["Juan" "M" "CA"]]))
+  (vp/view-image   (plot-baby-names-normalized "Baby Names 2" [["Blanche" "F" "MS"]
+                                                               ["Minnie"  "F" "MS"]]))
+  (vp/view-image   (plot-baby-names-normalized "Baby Names 3" [["John","M","NY"]]))
+  (vp/view-image   (plot-baby-names-normalized "Baby Names 4" [["Arnold" "M" "FL"]
+                                                               ["Arnold" "M" "CA"]])))
 
-;;(sample-plot-2)
+;; (sample-plot-2)
