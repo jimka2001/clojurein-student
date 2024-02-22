@@ -7,7 +7,7 @@ all:
 	cp -r ${SRC}/clojurein-source-code/resources/US-baby-names ./clojurein-source-code/resources/.
 	cp -r ${SRC}/clojurein-source-code/test/* ./clojurein-source-code/test/.
 	mkdir -p ./clojurein-source-code/src/clojurein_source_code/{common,homework,lecture}/.
-	mkdir -p ./clojurein-source-code/test/clojurein_source_code/{homework,lecture}/.
+	mkdir -p ./clojurein-source-code/test/clojurein_source_code/{common,homework,lecture}/.
 	cp -r ${SRC}/clojurein-source-code/test/clojurein_source_code/lecture/*.clj ./clojurein-source-code/test/clojurein_source_code/lecture/.
 	cp -r ${SRC}/clojurein-source-code/src/clojurein_source_code/common/*.clj ./clojurein-source-code/src/clojurein_source_code/common/.
 	cp -r ${SRC}/clojurein-source-code/src/clojurein_source_code/lecture/*.clj ./clojurein-source-code/src/clojurein_source_code/lecture/.
