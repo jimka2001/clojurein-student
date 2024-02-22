@@ -2,7 +2,7 @@
   (:require [clojurein-source-code.homework.polynomial :as sut]
             [clojurein-source-code.common.util :refer [almost-equal almost-equal-seq]]
             [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.lecture.util :refer [testing-with-timeout *time-out*]]
+            [clojurein-source-code.homework.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is]]))
 
 

@@ -37,7 +37,7 @@
 (defn sample-plot-1 []
   (vp/view-image (baby-name-plot "John" "M" "CA")))
 
-(sample-plot-1)
+;;(sample-plot-1)
 
 (defn baby-name-normalized-data
   "return a seqeunce of pairs [year percentage] where percentage measures

@@ -1,5 +1,5 @@
-(ns clojurein-source-code.lecture.util
-  (:require  [clojure.test :refer [is testing testing-contexts-str *testing-contexts*]]
+(ns clojurein-source-code.homework.util
+    (:require  [clojure.test :refer [is testing testing-contexts-str *testing-contexts*]]
              [clojure.pprint :refer [cl-format]]))
 
 (def ^:dynamic *time-out* (* 2 60 1000)) ;; 2 seconds
@@ -23,3 +23,5 @@
      (call-with-timeout *time-out*
                         (fn []
                           ~@body))))
+
+
