@@ -1,7 +1,7 @@
 (ns clojurein-source-code.homework.factors-test
   (:require [clojurein-source-code.homework.factors :as sut]
             [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.common.util :refer [re-chunk testing-with-timeout *time-out*]]
+            [clojurein-source-code.common.util :refer [re-chunk testing-with-timeout *time-out* member]]
             [clojure.math :refer [sqrt ceil]]
             [clojure.test :refer [deftest is testing]]))
 
@@ -31,6 +31,23 @@
     (is (= [3] (sut/prime-factors 3)))
     (is (= [5] (sut/prime-factors 5)))))
 
+(deftest t-trivial-singleton-factor
+  (testing-with-timeout "trivial-singleton-factor"
+    (doseq [k (range 2 1000)]
+      (if (prime? k)
+        (is (= [k] (sut/prime-factors k)))
+        (is (not= [k] (sut/prime-factors k)))))))
+
+(deftest t-trivial-pairs
+  (testing-with-timeout "trivial pairs"
+    (doseq [k (range 2 500)
+            :when (prime? k)
+            j (range (inc k) 500)
+            :when (prime? j)
+            :let [factors (sut/prime-factors (* k j))]]
+      (is (= 2 (count factors)))
+      (is (member k factors))
+      (is (member j factors)))))
 
 (deftest t-prime-factors
   (testing-with-timeout "prime-factors"
@@ -57,9 +74,7 @@
             (cl-format nil "for n=~A computed factors ~A but expecting ~A"
                        composite (sort fs) (sort primes))
             )))))
-      
-              
-      
+
 (deftest t-prime-factors-bigint
   (testing-with-timeout "prime-factors-bigint"
     (let [factors [2 2 2
