@@ -1,8 +1,8 @@
-(ns clojurein-source-code.homework.triptych-test
-  (:require [clojurein-source-code.homework.triptych :as sut]
+(ns homework.triptych-test
+  (:require [homework.triptych :as sut]
             [clojure.set :refer [union intersection difference subset?]]
             [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.common.util :refer [almost-equal time-call *time-out* testing-with-timeout]]
+            [common.util :refer [almost-equal time-call *time-out* testing-with-timeout]]
             [clojure.test :refer [deftest is]]))
 
 (defmacro test-testing [name & exprs]

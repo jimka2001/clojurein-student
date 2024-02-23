@@ -1,4 +1,4 @@
-(ns clojurein-source-code.homework.frenchnames
+(ns homework.frenchnames
   (:require [clojure.string :refer [lower-case split index-of]]
             [clojure.java.io :as io]
             [clojure.pprint :refer [cl-format]]))

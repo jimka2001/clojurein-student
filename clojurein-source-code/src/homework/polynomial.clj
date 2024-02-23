@@ -1,5 +1,5 @@
-(ns clojurein-source-code.homework.polynomial
-  (:require [clojurein-source-code.common.util :refer [almost-equal]]
+(ns homework.polynomial
+  (:require [common.util :refer [almost-equal]]
             [clojure.math :refer [sqrt]]
             [clojure.pprint :refer [cl-format]]))
 

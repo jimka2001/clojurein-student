@@ -1,7 +1,7 @@
-(ns clojurein-source-code.homework.factors-test
-  (:require [clojurein-source-code.homework.factors :as sut]
+(ns homework.factors-test
+  (:require [homework.factors :as sut]
             [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.common.util :refer [re-chunk testing-with-timeout *time-out* member]]
+            [common.util :refer [re-chunk testing-with-timeout *time-out* member]]
             [clojure.math :refer [sqrt ceil]]
             [clojure.test :refer [deftest is testing]]))
 

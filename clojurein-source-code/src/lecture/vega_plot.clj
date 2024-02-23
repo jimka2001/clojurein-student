@@ -1,4 +1,4 @@
-(ns clojurein-source-code.lecture.vega-plot
+(ns lecture.vega-plot
   (:require [oz.core :as oz]
             [clojure.pprint :refer [pprint]]
             [clojure.java.browse :refer [browse-url]]
@@ -44,7 +44,6 @@
   (let [tmp  (.getAbsolutePath (java.io.File/createTempFile chart-title ".svg"))
         formatted-data (series-format-plot-data chart-title x-label y-label data)]
 
-    (pprint formatted-data)
     (oz/export! formatted-data tmp)
     tmp))
 

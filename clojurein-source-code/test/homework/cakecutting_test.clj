@@ -1,7 +1,7 @@
-(ns clojurein-source-code.homework.cakecutting-test
-  (:require [clojurein-source-code.homework.cakecutting :as sut]
+(ns homework.cakecutting-test
+  (:require [homework.cakecutting :as sut]
             ;; [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.common.util :refer [almost-equal testing-with-timeout *time-out*]]
+            [common.util :refer [almost-equal testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
 (def reference

@@ -1,4 +1,4 @@
-(ns clojurein-source-code.homework.theg
+(ns homework.theg
   (:require [clojure.set :refer [union difference]]))
 
 

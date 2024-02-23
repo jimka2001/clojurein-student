@@ -1,6 +1,6 @@
-(ns clojurein-source-code.homework.frenchnames-test
-  (:require [clojurein-source-code.homework.frenchnames :as sut]
-            [clojurein-source-code.common.util :refer [member testing-with-timeout *time-out*]]
+(ns homework.frenchnames-test
+  (:require [homework.frenchnames :as sut]
+            [common.util :refer [member testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
             [clojure.test :refer [deftest is testing]]))
 

@@ -1,4 +1,4 @@
-(ns clojurein-source-code.homework.trig
+(ns homework.trig
   )
 
   

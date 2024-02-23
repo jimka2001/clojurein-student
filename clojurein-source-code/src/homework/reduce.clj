@@ -1,4 +1,4 @@
-(ns clojurein-source-code.homework.reduce
+(ns homework.reduce
   )
 
   

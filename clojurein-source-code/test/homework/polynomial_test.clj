@@ -1,6 +1,6 @@
-(ns clojurein-source-code.homework.polynomial-test
-  (:require [clojurein-source-code.homework.polynomial :as sut]
-            [clojurein-source-code.common.util :refer [almost-equal almost-equal-seq
+(ns homework.polynomial-test
+  (:require [homework.polynomial :as sut]
+            [common.util :refer [almost-equal almost-equal-seq
                                                        testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
             [clojure.test :refer [deftest is]]))

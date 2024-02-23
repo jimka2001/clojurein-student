@@ -1,4 +1,4 @@
-(ns clojurein-source-code.homework.runaverage
+(ns homework.runaverage
   )
 
   

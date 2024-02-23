@@ -1,4 +1,4 @@
-(ns clojurein-source-code.lecture.sum-list)
+(ns lecture.sum-list)
 
 
 (defn sum-list-seq

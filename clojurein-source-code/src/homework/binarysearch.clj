@@ -1,4 +1,4 @@
-(ns clojurein-source-code.homework.binarysearch
+(ns homework.binarysearch
   )
 
   

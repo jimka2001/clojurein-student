@@ -1,9 +1,9 @@
-(ns clojurein-source-code.lecture.baby-name-plot
+(ns lecture.baby-name-plot
   (:require [clojure.string :refer [split]]
             [clojure.java.io :as io]
-            [clojurein-source-code.common.util :refer [find-if]]
+            [common.util :refer [find-if]]
             ;; [clojure.tools.trace :as trace] ;; (trace/untrace-ns 'oz.core)
-            [clojurein-source-code.lecture.vega-plot :as vp]))
+            [lecture.vega-plot :as vp]))
 
 
 (defn baby-name-plot

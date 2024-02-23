@@ -1,6 +1,6 @@
-(ns clojurein-source-code.homework.factors
+(ns homework.factors
   (:require [clojure.math :refer [sqrt]]
-            [clojurein-source-code.common.util :refer [re-chunk]]))
+            [common.util :refer [re-chunk]]))
 
 (defn prime-factors
   "Return a vector of positive integers, each >= 2,

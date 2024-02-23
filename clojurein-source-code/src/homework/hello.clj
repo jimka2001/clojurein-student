@@ -1,4 +1,4 @@
-(ns clojurein-source-code.homework.hello
+(ns homework.hello
   (:require [clojure.pprint :refer [cl-format]]))
 
 ;; The purpose of this function it to assure that the student knows

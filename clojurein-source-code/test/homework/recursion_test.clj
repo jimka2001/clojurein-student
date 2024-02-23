@@ -1,6 +1,6 @@
-(ns clojurein-source-code.homework.recursion-test
-  (:require [clojurein-source-code.homework.recursion :as sut]
-            [clojurein-source-code.common.util :refer [testing-with-timeout *time-out*]]
+(ns homework.recursion-test
+  (:require [homework.recursion :as sut]
+            [common.util :refer [testing-with-timeout *time-out*]]
             [clojure.test :refer [deftest is testing]]))
 
 

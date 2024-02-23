@@ -1,7 +1,7 @@
-(ns clojurein-source-code.homework.triptych
+(ns homework.triptych
   (:require [clojure.set :refer [union intersection difference]]
             ;; [clojure.pprint :refer [cl-format]]
-            [clojurein-source-code.common.util :refer [re-chunk member]]))
+            [common.util :refer [re-chunk member]]))
 
 (def colors  #{:red :purple :green})
 (def shapes #{:oval :squiggle :diamond})

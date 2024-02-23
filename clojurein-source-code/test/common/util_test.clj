@@ -1,5 +1,5 @@
-(ns clojurein-source-code.common.util-test
-  (:require [clojurein-source-code.common.util :as sut]
+(ns common.util-test
+  (:require [common.util :as sut]
             [clojure.pprint :refer [cl-format]]
             [clojure.test :refer [deftest is testing]]))
 
