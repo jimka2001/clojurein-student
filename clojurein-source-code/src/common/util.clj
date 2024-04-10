@@ -101,3 +101,7 @@
      (call-with-timeout *time-out*
                         (fn []
                           ~@body))))
+
+(defn type-check [f x]
+  {:pre [(f x)]}
+  x)
