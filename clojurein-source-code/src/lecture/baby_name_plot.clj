@@ -3,6 +3,7 @@
             [clojure.java.io :as io]
             [common.util :refer [find-if]]
             ;; [clojure.tools.trace :as trace] ;; (trace/untrace-ns 'oz.core)
+            [common.view :refer [view-image]]
             [lecture.vega-plot :as vp]))
 
 
@@ -35,7 +36,7 @@
                             [[(format "%s-%s-%s" name-target gender-target state-target) data]])))
           
 (defn sample-plot-1 []
-  (vp/view-image (baby-name-plot "John" "M" "CA")))
+  (view-image (baby-name-plot "John" "M" "CA")))
 
 ;;(sample-plot-1)
 
@@ -95,12 +96,12 @@
                              (baby-name-normalized-data name-target gender-target state-target)])))
 
 (defn sample-plot-2 []
-  (vp/view-image (plot-baby-names-normalized "Baby Names 1" [["Juan" "M" "MS"]
-                                                             ["Juan" "M" "CA"]]))
-  (vp/view-image   (plot-baby-names-normalized "Baby Names 2" [["Blanche" "F" "MS"]
-                                                               ["Minnie"  "F" "MS"]]))
-  (vp/view-image   (plot-baby-names-normalized "Baby Names 3" [["John","M","NY"]]))
-  (vp/view-image   (plot-baby-names-normalized "Baby Names 4" [["Arnold" "M" "FL"]
-                                                               ["Arnold" "M" "CA"]])))
+  (view-image (plot-baby-names-normalized "Baby Names 1" [["Juan" "M" "MS"]
+                                                          ["Juan" "M" "CA"]]))
+  (view-image (plot-baby-names-normalized "Baby Names 2" [["Blanche" "F" "MS"]
+                                                          ["Minnie"  "F" "MS"]]))
+  (view-image (plot-baby-names-normalized "Baby Names 3" [["John","M","NY"]]))
+  (view-image (plot-baby-names-normalized "Baby Names 4" [["Arnold" "M" "FL"]
+                                                          ["Arnold" "M" "CA"]])))
 
 ;; (sample-plot-2)
