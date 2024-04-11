@@ -15,11 +15,10 @@
   ([dot-string]
    (str-to-png dot-string "graph"))
   ([dot-string title]
-   (let [png-name (. (java.io.File/createTempFile (str title "-") ".png") toString)
-         dot-name (. (java.io.File/createTempFile (str title "-") ".dot") toString)]
+   (let [png-name (.getPath (java.io.File/createTempFile (str title "-") ".png"))
+         dot-name (.getPath (java.io.File/createTempFile (str title "-") ".dot"))]
      (spit dot-name dot-string)
      (sh *dot-path* "-Tpng" dot-name "-o" png-name)
-     (println png-name)
      png-name)))
 
 (defn show
