@@ -54,13 +54,10 @@
   (into {} (for [[src pairs] (group-by first edges)]
              [src (into #{} (map second pairs))])))
 
-
-
 ;;(make-adj-1 3 [[0 1] [0 2] [1 2]])
 ;;(make-adj-2 3 [[0 1] [0 2] [1 2]])
 ;;(make-adj-3 3 [[0 1] [0 2] [1 2]])
 ;;(make-adj-4 3 [[0 1] [0 2] [1 2]])
-
 
 (defn list-paths
   [edges v-start target-length]
@@ -76,7 +73,6 @@
                 (mapcat extend-by-1 path))
               initial-paths
               (range target-length)))))
-
     
 (def *graph*
   [[0 1] [0 2] 
