@@ -7,7 +7,6 @@
                  [metasoarous/oz "2.0.0-alpha5"]    ;; DOCKER OMIT
                  ]
   :plugins [[lein-exec "0.3.7"]]
-  :main ^:skip-aot clojurein-source-code.core
   :target-path "target/%s"
   :jvm-opts [ 
              "-Xms1500m", "-Xmx1500m"
