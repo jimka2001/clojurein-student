@@ -11,7 +11,8 @@
 
   :plugins [[lein-exec "0.3.7"]]
   :target-path "target/%s"
-  :jvm-opts ["-Xms1500m", "-Xmx1500m"
+  :jvm-opts [ 
+             "-Xms1500m", "-Xmx1500m"
              ;; MAC only
              ;; the --add-opens= is for supressing the following warnings ;; MAC only
              ;; WARNING: An illegal reflective access operation has occurred ;; MAC only
@@ -23,6 +24,7 @@
              , "--add-opens=java.xml/com.sun.xml.internal.stream.writers=ALL-UNNAMED" ;; MAC only
              ]
   :profiles {:test {:plugins [[lein-test-report-junit-xml "0.2.0"]]
-                    :test-report-junit-xml {:output-dir "."}}
+                    :test-report-junit-xml {:output-dir "."}
+                    }
              :uberjar {:aot :all
                        :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})
