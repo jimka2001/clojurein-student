@@ -2,6 +2,9 @@ SRC = ${PWD}/../clojurein/.
 DST = ${PWD}/../clojurein-student/.
 
 all:
+	cp ${SRC}/*.md .
+	mkdir -p .vscode
+	cp ${SRC}/.vscode/settings.json ./.vscode/.
 	cp ${SRC}/clojurein-source-code/project.clj ./clojurein-source-code/project.clj
 	cp -r ${SRC}/clojurein-source-code/resources/France-baby-names ./clojurein-source-code/resources/.
 	cp -r ${SRC}/clojurein-source-code/resources/US-baby-names ./clojurein-source-code/resources/.
