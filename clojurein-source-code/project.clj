@@ -6,6 +6,9 @@
                  [org.clojure/tools.trace "0.7.11"] ;; DOCKER OMIT
                  [metasoarous/oz "2.0.0-alpha5"]    ;; DOCKER OMIT
                  ]
+  :source-paths ["src"]
+  :test-paths ["test"]
+
   :plugins [[lein-exec "0.3.7"]]
   :main ^:skip-aot clojurein-source-code.core
   :target-path "target/%s"
