@@ -5,19 +5,20 @@ To use this project with VS Code:
 0. Install the [Calva](https://calva.io) extension in VS Code.
 1. Start the project and connect the REPL to Calva.
 
-> **Note:** To easily find Calva and VS Code commands, use the **Command Palette** and type to search. You can bring up the command palette with `Cmd/Ctrl+P` (Cmd on Mac) or `F1`.
+> **Note:** To easily find Calva and VS Code commands, use the **Command Palette** and type to search. You can bring up the command palette with `Cmd/Ctrl+P` (Cmd on Mac) or `F1`. The command palette will show the current keybinding for a command.
 
 ## Starting and connecting the project REPL
 
 With the project opened in VS Code, issue the command: **Calva: Start a Project REPL and Connect (aka Jack-In)**, two windows/panes will open:
 
-* The _Calva Jack-in terminal_. This will show output from the Clojure process
-* The _Calva REPL Window_ (a regular, yet special file) will open to the right ->
-  * This file will have show the message `; Jack-in done.` when the  REPL is connected
+* The _Calva Jack-in terminal_. This will show output from the Clojure process.
+* The _Calva REPL Window_ (a regular, yet special file) will open.
+  * This file will show the message `; Jack-in done.` when the  REPL is connected
   * This is where results of your evaluations of Clojure code will be shown, as well as things you `println` from Clojure code.
 
 ## Calva Crash Course
 
+See [calva.io](https://calva.io) for the Calva documentation.
 
 ### Editing
 
@@ -27,7 +28,7 @@ By default Calva protects the Lisp structure of the Code by:
 * not deleting closing brackets when you backspace over them
   * To force delete a bracket, use `Alt/Option + Backspace`
 
-A good command to learn early is **Expand Selection**. Pressing it once will select the “Current” form. Pressing it repeatedly will select increasingly encapsulating forms. Now you can easily select something and wrap it in
+A good command to learn early is **Expand Selection**. Using it once will select the “Current” form. Pressing it repeatedly will select increasingly encapsulating forms. Now you can easily select something and wrap it in brackets.
 
 > **Note**: The “Current” form is an important Calva concept, that basically means the Lisp expression closest to the cursor.
 
