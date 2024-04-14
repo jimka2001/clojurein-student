@@ -18,3 +18,13 @@
   (throw (ex-info "Missing single expression, not yet implemented" {}))
   )
 
+(comment
+  ;; To run the tests in your editor/REPL, first they need to be loaded
+  ;; in the REPL.
+  ;; Open the file in your editor and load it from there.
+  ;; (Or evaluate the form below)
+  (load-file "test/homework/hello_test.clj")
+  ;; If you get an error  `No such var: sut/hello` you first need to
+  ;; evaluate the `hello` function in this file.
+  ;; Then load the test file again.
+  )

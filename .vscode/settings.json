@@ -1,0 +1,20 @@
+{
+  "calva.showCalvaSaysOnStart": false,
+  "calva.useLegacyReplWindowPath": false,
+  "calva.replConnectSequences": [
+    {
+      "name": "Clojurein",
+      "projectRootPath": [
+        "clojurein-source-code"
+      ],
+      "projectType": "Leiningen",
+      "cljsType":"none",
+      "autoSelectForJackIn": true,
+      "autoSelectForConnect": true,
+      "menuSelections": {
+        "leinProfiles": [
+          "test"]
+      }
+    }
+  ]
+}
