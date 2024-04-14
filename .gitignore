@@ -1,3 +1,4 @@
+*~
 clojurein-source-code/target
 clojurein-source-code/classes
 clojurein-source-code/checkouts
@@ -12,6 +13,9 @@ clojurein-source-code/.prepl-port
 clojurein-source-code/.hgignore
 clojurein-source-code/.hg/
 TEST-*.xml
+clojurein-source-code/.idea
+clojurein-source-code/.clj-kondo
+clojurein-source-code/.lsp
 *.clj~
 
 #*.clj#
