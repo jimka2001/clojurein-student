@@ -13,6 +13,10 @@ clojurein-source-code/.hgignore
 clojurein-source-code/.hg/
 TEST-*.xml
 *.clj~
+
 #*.clj#
-.clj-kondo
-.lsp
+.lsp/.cache
+.clj-kondo/.cache
+
+# Calva
+**/.calva/*.calva-repl
