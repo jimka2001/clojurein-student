@@ -10,7 +10,6 @@
   :test-paths ["test"]
 
   :plugins [[lein-exec "0.3.7"]]
-
   :target-path "target/%s"
   :jvm-opts ["-Xms1500m", "-Xmx1500m"
              ;; MAC only
