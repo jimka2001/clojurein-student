@@ -5,18 +5,19 @@ To use this project with VS Code:
 0. Install the [Calva](https://calva.io) extension in VS Code.
 1. Start the project and connect the REPL to Calva.
 
+> **Note:** To easily find Calva and VS Code commands, use the **Command Palette** and type to search. You can bring up the command palette with `Cmd/Ctrl+P` (Cmd on Mac) or `F1`.
+
 ## Starting and connecting the project REPL
 
-From the command pallette issue the command: **Calva: Start a Project REPL and Connect (aka Jack-In)**, two windows/panes will open:
+With the project opened in VS Code, issue the command: **Calva: Start a Project REPL and Connect (aka Jack-In)**, two windows/panes will open:
 
-* The Calva Jack-in terminal. This will show output from the Clojure process
-* The Calva REPL Window (a special file) will open to the right ->
+* The _Calva Jack-in terminal_. This will show output from the Clojure process
+* The _Calva REPL Window_ (a regular, yet special file) will open to the right ->
   * This file will have show the message `; Jack-in done.` when the  REPL is connected
   * This is where results of your evaluations of Clojure code will be shown, as well as things you `println` from Clojure code.
 
 ## Calva Crash Course
 
-To easily find Calva and VS Code commands, use the **Command Palette** and type to search. You can bring up the command palette with `Cmd/Ctrl+P` (Cmd on Mac) or `F1`.
 
 ### Editing
 
