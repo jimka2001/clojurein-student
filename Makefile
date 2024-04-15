@@ -9,6 +9,8 @@ all:
 	cp -r ${SRC}/clojurein-source-code/resources/France-baby-names ./clojurein-source-code/resources/.
 	cp -r ${SRC}/clojurein-source-code/resources/US-baby-names ./clojurein-source-code/resources/.
 	cp -r ${SRC}/clojurein-source-code/test/* ./clojurein-source-code/test/.
+	cp -r ${SRC}/clojurein-source-code/README.md ./clojurein-source-code/.
+	cp -r ${SRC}/clojurein-source-code/Makefile ./clojurein-source-code/.
 	mkdir -p ./clojurein-source-code/src/{common,homework,lecture}/.
 	mkdir -p ./clojurein-source-code/test/{common,homework,lecture}/.
 	cp -r ${SRC}/clojurein-source-code/test/lecture/*.clj ./clojurein-source-code/test/lecture/.
