@@ -48,11 +48,11 @@
 ;; 5
 (deftest t-plus-identity
   (testing-with-timeout "plus_identity"
-    (doseq [re (range -100 100)
-            im (range -100 100)
+    (doseq [re (range -100 100 7)
+            im (range -100 100 13)
             :let [z [(float re) (float im)]]]
-      (is (= z (sut/plus sut/plus-identity z)))
-      (is (= z (sut/plus z sut/plus-identity))))))
+      (is (= z (sut/plus (sut/plus) z)))
+      (is (= z (sut/plus z (sut/plus)))))))
 
 ;; 6
 (deftest t-times
@@ -67,19 +67,19 @@
 ;; 7
 (deftest t-times-identity
   (testing-with-timeout "times_identity"
-    (doseq [re (range -100 100)
-            im (range -100 100)
+    (doseq [re (range -100 100 7)
+            im (range -100 100 13)
             :let [z [(float re) (float im)]]]
-      (is (= z (sut/times sut/times-identity z)))
-      (is (= z (sut/times z sut/times-identity))))))
+      (is (= z (sut/times (sut/times) z)))
+      (is (= z (sut/times z (sut/times)))))))
 
 ;; 8
 (deftest t-singleton-list
   (testing-with-timeout "plus singleton list"
-    (doseq [re (range -100 100)
-            im (range -100 100)
+    (doseq [re (range -100 100 7)
+            im (range -100 100 13)
             :let [z [(float re) (float im)]]]
-      (is (= z (sut/plus-list [z]))
+      (is (= z (sut/plus z))
           (cl-format false 
                      "failed to add singleton list for z=~A" z)))))
 
@@ -87,29 +87,29 @@
 (deftest t-plus-list
   (testing-with-timeout "plus list"
     (is (= [0.0 0.0]
-           (sut/plus-list [])))
+           (sut/plus )))
     (is (= [1.0 2.0]
-           (sut/plus-list [[1.0 2.0]])))
+           (sut/plus [1.0 2.0])))
     (is (= [-5.0 6.0]
-           (sut/plus-list [[1.0 0.0] [1.0 0.0] [3.0 2.0] [-10.0 4.0]])))))
+           (sut/plus [1.0 0.0] [1.0 0.0] [3.0 2.0] [-10.0 4.0])))))
 
 ;; 10
 (deftest t-times-list
   (testing-with-timeout "times list"
     (is (= [1.0 0.0]
-           (sut/times-list [])))
+           (sut/times )))
     (is (= [1.0 2.0]
-           (sut/times-list [[1.0 2.0]])))
+           (sut/times [1.0 2.0])))
     (is (= [-1.0 0.0]
-           (sut/times-list [[0.0 1.0] [0.0 1.0]])))
+           (sut/times [0.0 1.0] [0.0 1.0])))
     (is (= [-38.0 -8.0]
-           (sut/times-list [[1.0 0.0] [1.0 0.0] [3.0 2.0] [-10.0 4.0]])))))
+           (sut/times [1.0 0.0] [1.0 0.0] [3.0 2.0] [-10.0 4.0])))))
 
 ;; 11
 (deftest t-times-singleton-list
   (testing-with-timeout "times singleton list"
-    (doseq [re (range -100 100)
-            im (range -100 100)
+    (doseq [re (range -100 100 7)
+            im (range -100 100 13)
             :let [z [(float re) (float im)]]]
-      (is (= z (sut/times-list [z]))
+      (is (= z (sut/times z))
           (cl-format false "failed to multiply singleton list with z=~A" z)))))

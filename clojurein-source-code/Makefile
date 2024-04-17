@@ -1,14 +1,15 @@
-test:
-	lein test homework.binarysearch-test
-	lein test homework.cakecutting-test
-	lein test homework.determinant-test
-	lein test homework.factors-test
-	lein test homework.frenchnames-test
-	lein test homework.hello-test
-	lein test homework.polynomial-test
-	lein test homework.recursion-test
-	lein test homework.reduce-test
-	lein test homework.runaverage-test
-	lein test homework.theg-test
-	lein test homework.trig-test
-	lein test homework.triptych-test
+tests:
+	lein test homework.binarysearch-test \
+	 homework.cakecutting-test \
+	 homework.calculus-test \
+	 homework.determinant-test \
+	 homework.factors-test \
+	 homework.frenchnames-test \
+	 homework.hello-test \
+	 homework.polynomial-test \
+	 homework.recursion-test \
+	 homework.reduce-test \
+	 homework.runaverage-test \
+	 homework.theg-test \
+	 homework.trig-test \
+	 homework.triptych-test

@@ -35,68 +35,68 @@
 ;;   (a b) plus (c d) = (a+c b+d)
 ;;   (a b) times (c d) = (a*c-b*d  b*c+a*d)"
 
-(def plus-identity
-  "the value which we can add (plus) to any (Double Double)
-      and get the same value back.
-       plus(plus_identity  x) == x
-   and plus(x  plus_identity) == x
-  If it is not clear what this value should be 
-  you may look closely at the test cases;
-  you should be able to reverse engineer the value of
-   plus_identity by looking at the test case."
-  (throw (ex-info "Missing single expression, not yet implemented" {}))
-  )
 
 (defn plus
-  "e.g.  (plus [1.0 10.0] [100.0 1000.0]) ==> [101.0 1010.0]"
-  [[a b] [c d]]
-  [(+ a c) (+ b d)])
-
+  "e.g.  
+         (plus) => identity of addition
+         (plus x) => x
+         (plus [1.0 10.0] [100.0 1000.0]) => [101.0 1010.0]
+         (plus ...) => sum multiple pairs
+  "
+  ;; the value which we can add (plus) to any (Double Double)
+  ;;    and get the same value back.
+  ;;     plus(plus_identity  x) == x
+  ;; and plus(x  plus_identity) == x
+  ;; If it is not clear what this value should be 
+  ;; you may look closely at the test cases;
+  ;; you should be able to reverse engineer the value of
+  ;; plus_identity by looking at the test case.
+  ([] (throw (ex-info "Missing single expression, not yet implemented" {}))
+   )
+  ([a] a)
+  ([[a b] [c d]]
+   [(+ a c) (+ b d)])
+  ([a b & rest]
+   ;; You may use your function plus to compute the sum
+   ;; of exactly two pairs at a time.
+   ;; Use reduce to compute to generalize to a List of pairs of Double
+   ;; You'll need to provide a so-called zero argument for fold in both
+   ;; cases. In the first case the argument must be the identity of the
+   ;; plus function  and in the second case  you'll need the identity
+   ;; for the times function.   You need to figure out what these
+   ;; elements are?  E.g.  which pair [e1 e2] has the property that
+   ;; for all [a b]  (plus [e1 e2] [a b]) == [a b] == (plus [a b] [e1 e2]) ?
+   (throw (ex-info "Missing single expression, not yet implemented" {}))
+   ))
   
 (defn times
-  "e.g.  (times [3.0 5.0] [-7.0 2.0]) ==> [-31.0 -29.0]"
-  [[a b] [c d]]
-
-  [(- (* a c) (* b d))
-   (+ (* b c) (* a d))])
-
-(def times-identity
-  "The value which we can multiply (times) to any (Double Double)
-      and get the same value back.
-      (times times-identity  x) == x
-  and (times x  times-identity) == x
-  If it is not clear what this value should be 
-  you may look closely at the test cases;
-  you should be able to reverse engineer the value of
-  times_identity by looking at the test case."
-  (throw (ex-info "Missing single expression, not yet implemented" {}))
-  )
-
-(defn plus-list
-  "You may use your functions  plus and times  to compute the sum and product
-  of exactly two pairs at a time.
-  Use reduce to compute to generalize to a List of pairs of Double
-  You'll need to provide a so-called zero argument for fold in both
-  cases. In the first case the argument must be the identity of the
-  plus function  and in the second case  you'll need the identity
-  for the times function.   You need to figure out what these
-  elements are?  E.g.  which pair [e1 e2] has the property that
-  for all [a b]  (plus [e1 e2] [a b]) == [a b] == (plus [a b] [e1 e2]) ?"
-  [data]
-  (throw (ex-info "Missing single expression, not yet implemented" {}))
-  )
-
-(defn times-list
-  "You may use your functions  plus and times  to compute the sum and product
-  of exactly two pairs at a time.
-  Use reduce to compute to generalize to a List of pairs of Double
-  You'll need to provide a so-called zero argument for fold in both
-  cases. In the first case the argument must be the identity of the
-  plus function  and in the second case  you'll need the identity
-  for the times function.   You need to figure out what these
-  elements are?  E.g.  which pair [e1 e2] has the property that
-  for all [a b]  (times [e1 e2] [a b]) == [a b] == (times [a b] [e1 e2]) ?"
-  [data]
-  (throw (ex-info "Missing single expression, not yet implemented" {}))
-  )
+  "e.g.  (times [3.0 5.0] [-7.0 2.0]) => [-31.0 -29.0]
+         (times) => identity for multiplication
+         (times a) => a
+         (times ...) => product of a sequence of values"
+  ;; The value which we can multiply (times) to any (Double Double)
+  ;;    and get the same value back.
+  ;;    (times times-identity  x) == x
+  ;; and (times x  times-identity) == x
+  ;; If it is not clear what this value should be 
+  ;; you may look closely at the test cases;
+  ;; you should be able to reverse engineer the value of
+  ;; times_identity by looking at the test case.
+  ([] (throw (ex-info "Missing single expression, not yet implemented" {}))
+  ([a] a)
+  ([[a b] [c d]]
+   [(- (* a c) (* b d))
+    (+ (* b c) (* a d))])
+  ([a b & rest]
+   ;; You may use your function times to compute the product
+   ;; of exactly two pairs at a time.
+   ;; Use reduce to compute to generalize to a List of pairs of Double
+   ;; You'll need to provide a so-called zero argument for fold in both
+   ;; cases. In the first case the argument must be the identity of the
+   ;; plus function  and in the second case  you'll need the identity
+   ;; for the times function.   You need to figure out what these
+   ;; elements are?  E.g.  which pair [e1 e2] has the property that
+   ;; for all [a b]  (times [e1 e2] [a b]) == [a b] == (times [a b] [e1 e2]) ?"
+   (throw (ex-info "Missing single expression, not yet implemented" {}))
+   ))
 
