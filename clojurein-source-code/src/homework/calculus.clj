@@ -40,3 +40,48 @@
            n (* 2 n)]
       ;; CHALLENGE: student must complete the implementation.
       (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+      )))
+
+(defn derivative+
+  "Compute an approximation for the slope of the given function
+  as x approaches a from the right."
+  [f a dx epsilon]
+  (assert (function? f))
+  (assert (float? a))
+  (assert (float? dx))
+  (assert (float? epsilon))
+  (assert (< 0 epsilon))
+  (assert (< 0 dx))
+  
+  (let [fa (f a)
+        slope (fn [dx] (/ (- (f (+ a dx)) fa)
+                          dx))]
+    ;; CHALLENGE: student must complete the implementation.
+    (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+    ))
+
+(defn derivative-
+  [f a dx epsilon]
+  (assert (function? f))
+  (assert (float? a))
+  (assert (float? dx))
+  (assert (float? epsilon))
+  (assert (< 0 epsilon))
+  (assert (< 0 dx))
+  (- (derivative+ (throw (ex-info "Missing single expression, not yet implemented" {}))
+                  a dx epsilon)))
+
+(defn derivative
+  "Return the average of the derivative from the right
+  and the derivative from the left."
+  [f a dx epsilon]
+  (assert (function? f))
+  (assert (float? a))
+  (assert (float? dx))
+  (assert (float? epsilon))
+  (assert (< 0 epsilon))
+  (assert (< 0 dx))
+  (/ (throw (ex-info "Missing single expression, not yet implemented" {}))
+                    (derivative+ f a dx epsilon))
+     2.0))
+
