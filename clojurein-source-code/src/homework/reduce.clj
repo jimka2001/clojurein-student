@@ -83,6 +83,7 @@
   ;; you should be able to reverse engineer the value of
   ;; times_identity by looking at the test case.
   ([] (throw (ex-info "Missing single expression, not yet implemented" {}))
+   )
   ([a] a)
   ([[a b] [c d]]
    [(- (* a c) (* b d))
