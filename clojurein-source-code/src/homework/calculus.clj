@@ -68,12 +68,20 @@
   (assert (float? epsilon))
   (assert (< 0 epsilon))
   (assert (< 0 dx))
-  (- (derivative+ (throw (ex-info "Missing single expression, not yet implemented" {}))
-                  a dx epsilon)))
+  (- (derivative+ (fn [x]
+                    (throw (ex-info "Missing single expression, not yet implemented" {}))
+                    )
+                  (throw (ex-info "Missing single expression, not yet implemented" {}))
+                  dx epsilon)))
 
 (defn derivative
-  "Return the average of the derivative from the right
-  and the derivative from the left."
+  "returns the derivate (or nil)
+  by comparing the derivative from the right (derivative+ ...)
+  vs the derivative from the left (derivative- ...)
+  This function calls derivative- and derivative+
+  with half of epsilon as 4th argument.
+  If they are within epsilon of each other, then
+  their average is returned.  Otherwise nil is returned."
   [f a dx epsilon]
   (assert (function? f))
   (assert (float? a))
@@ -81,7 +89,6 @@
   (assert (float? epsilon))
   (assert (< 0 epsilon))
   (assert (< 0 dx))
-  (/ (throw (ex-info "Missing single expression, not yet implemented" {}))
-                    (derivative+ f a dx epsilon))
-     2.0))
-
+  ;; CHALLENGE: student must complete the implementation.
+  (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  )
