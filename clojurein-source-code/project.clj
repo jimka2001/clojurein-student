@@ -5,6 +5,7 @@
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [org.clojure/tools.trace "0.7.11"] ;; DOCKER OMIT
                  [metasoarous/oz "2.0.0-alpha5"]    ;; DOCKER OMIT
+                 [org.clj-commons/claypoole "1.2.2"]    ;; DOCKER OMIT
                  ]
   :source-paths ["src"]
   :test-paths ["test"]

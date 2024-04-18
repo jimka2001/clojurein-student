@@ -8,6 +8,8 @@ all:
 	cp ${SRC}/*.md .
 	mkdir -p .vscode
 	cp ${SRC}/.vscode/settings.json ./.vscode/.
+	mkdir -p ${DST}/clojurein-source-code/src/repl_sessions
+	cp ${SRC}/clojurein-source-code/src/repl_sessions/*.clj ${DST}/clojurein-source-code/src/repl_sessions/. 
 	cp ${SRC}/clojurein-source-code/project.clj ./clojurein-source-code/project.clj
 	cp -r ${SRC}/clojurein-source-code/resources/France-baby-names ./clojurein-source-code/resources/.
 	cp -r ${SRC}/clojurein-source-code/resources/US-baby-names ./clojurein-source-code/resources/.
