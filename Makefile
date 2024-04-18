@@ -2,6 +2,9 @@ SRC = ${PWD}/../clojurein/.
 DST = ${PWD}/../clojurein-student/.
 
 all:
+	mkdir -p ${DST}/doc/img
+	cp ${SRC}/doc/*.md ${DST}/doc/.
+	cp ${SRC}/doc/img/*.png ${DST}/doc/img/.
 	cp ${SRC}/*.md .
 	mkdir -p .vscode
 	cp ${SRC}/.vscode/settings.json ./.vscode/.
