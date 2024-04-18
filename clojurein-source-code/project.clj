@@ -1,5 +1,5 @@
 (defproject clojurein-source-code "0.1.0-SNAPSHOT"
-  :description "Source code for Clojurein, Introduction to Clojure Elective"
+  :description "Source code for Clojurein"
   :license {:name "BSD"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.11.1"]
