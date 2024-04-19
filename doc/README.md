@@ -1,3 +1,3 @@
-Functional Programming Techniques using Clojure
+# Functional Programming Techniques using Clojure
 
-(syllabus)[syllabus.md]
+[syllabus](syllabus.md)

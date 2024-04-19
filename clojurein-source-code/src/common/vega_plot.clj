@@ -1,4 +1,4 @@
-(ns lecture.vega-plot
+(ns common.vega-plot
   (:require [oz.core :as oz]
             [clojure.pprint :refer [pprint]]
             [clojure.tools.trace :as trace]))

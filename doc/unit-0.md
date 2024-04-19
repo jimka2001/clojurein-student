@@ -6,6 +6,8 @@ You'll need to install clojure onto your local machine or laptop.
 
 [Installing](https://clojure.org/guides/install_clojure)
 
+---
+
 ## Editors and IDEs
 
 Lots of editor environments are available.  Here is a summary of some.
@@ -26,6 +28,8 @@ Four interesting ones
 ### VS Code
 [Calva](https://calva.io)
 
+---
+
 ## Online documentation
 
 [clojure docs](https://clojuredocs.org/clojure.core/defn)
@@ -33,6 +37,7 @@ Four interesting ones
 ## Clojure web page
 [Clojure](https://clojure.org)
 
+---
 
 ## Homework
 There is a suite of homework programming problems.  Each assignment
@@ -40,15 +45,14 @@ has a template and a testcase.  The templates are found in the `src/homework` di
 and the corresponding tests are founnd in the `test/homework` directory.
 You should find all occurances such as
 
-```
-(throw (ex-info "Missing one or more expressions, not yet implemented" {}))
-```
+	(throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+
 
 and
 
-```
-(throw (ex-info "Missing single expression, not yet implemented" {}))
-```
+
+	(throw (ex-info "Missing single expression, not yet implemented" {}))
+
 
 and replace the `(throw ...)` with valid clojure code which fulfills the requirement
 and thus passes the corresponding tests.
@@ -58,61 +62,61 @@ and thus passes the corresponding tests.
 
 The first homework problem is `Hello`.  Find the file `src/homework/hello.clj`.
 In this file you'll find a template function something like the following:
-```
-;; The purpose of this function it to assure that the student knows
-;; how to write a basic clojure function, matching parens quotation
-;; marks etc, and that the student understands how to run the
-;; test cases provided in the project.
-(defn hello
-  "This function computes a String, but does not print it.
-  Given a string, who, such as \"Jim\", the function
-  computes the string \"Hello, Jim.\", i.e.,
-  Beginning with \"Hello\" with a capital H
-  then a comma, \",\",
-  then a space \" \",
-  then the value of who
-  and finally a period, \".\""
-  [who]
-  (throw (ex-info "Missing single expression, not yet implemented" {}))
-  )
-```
+
+
+    ;; The purpose of this function it to assure that the student knows
+    ;; how to write a basic clojure function, matching parens quotation
+    ;; marks etc, and that the student understands how to run the
+    ;; test cases provided in the project.
+    (defn hello
+      "This function computes a String, but does not print it.
+      Given a string, who, such as \"Jim\", the function
+      computes the string \"Hello, Jim.\", i.e.,
+      Beginning with \"Hello\" with a capital H
+      then a comma, \",\",
+      then a space \" \",
+      then the value of who
+      and finally a period, \".\""
+      [who]
+      (throw (ex-info "Missing single expression, not yet implemented" {}))
+      )
+
 
 Your job is to replace `(throw ...)` with an expression which causes the
 function to do what the docstring indicates.
 
 You may test your code from the shell using
-```
-sh> cd clojure-student/clojurein-source-code
-sh> lein test homework.hello-test
-```
+
+    sh> cd clojure-student/clojurein-source-code
+    sh> lein test homework.hello-test
+
 
 If all the tests pass, the output might look something like this.
 
-```
-Testing homework.hello-test
 
-Ran 5 tests containing 100 assertions.
-0 failures, 0 errors.
-```
+    Testing homework.hello-test
+
+    Ran 5 tests containing 100 assertions.
+    0 failures, 0 errors.
+
 
 If some of the tests fail, the output might look something like this.
 
-```
-Testing homework.hello-test
+    Testing homework.hello-test
 
-ERROR in (t-trivial) (hello.clj:18)
-trivial
-expected: (= (sut/hello "") "Hello, .")
-  actual: clojure.lang.ExceptionInfo: Missing single expression, not yet implemented
-{}
- at homework.hello$hello.invokeStatic (hello.clj:18)
-    homework.hello$hello.invoke (hello.clj:8)
-    homework.hello_test$fn__511$fn__512$fn__513.invoke (hello_test.clj:33)
-    homework.hello_test$fn__511$fn__512.invoke (hello_test.clj:33)
-    common.util$call_with_timeout$fn__408.invoke (util.clj:87)
-    clojure.core$binding_conveyor_fn$fn__5823.invoke (core.clj:2047)
-...
-```
+    ERROR in (t-trivial) (hello.clj:18)
+    trivial
+    expected: (= (sut/hello "") "Hello, .")
+      actual: clojure.lang.ExceptionInfo: Missing single expression, not yet implemented
+    {}
+     at homework.hello$hello.invokeStatic (hello.clj:18)
+        homework.hello$hello.invoke (hello.clj:8)
+        homework.hello_test$fn__511$fn__512$fn__513.invoke (hello_test.clj:33)
+        homework.hello_test$fn__511$fn__512.invoke (hello_test.clj:33)
+        common.util$call_with_timeout$fn__408.invoke (util.clj:87)
+        clojure.core$binding_conveyor_fn$fn__5823.invoke (core.clj:2047)
+    ...
+
 
 
 ## Submitting homework assignments
@@ -129,11 +133,10 @@ to the top level directory of your intra submission git repo e.g.,
 The top level directory should look like this, with some or all of the
 following files.
 
-```
-binarysearch.clj  frenchnames.clj  recursion.clj   theg.clj
-cakecutting.clj   hello.clj        reduce.clj      trig.clj
-factors.clj       polynomial.clj   runaverage.clj  triptych.clj
-```
+    binarysearch.clj  frenchnames.clj  recursion.clj   theg.clj
+    cakecutting.clj   hello.clj        reduce.clj      trig.clj
+    factors.clj       polynomial.clj   runaverage.clj  triptych.clj
+
 
 If the tests pass, you'll see something like the following on the Forge/intra page.
 

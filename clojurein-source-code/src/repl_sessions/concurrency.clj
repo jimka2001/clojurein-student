@@ -8,6 +8,12 @@
             [clojure.tools.logging :as log]
             [com.climate.claypoole :as cp]))
 
+;; log/info is not working for me, so we use prn for the moment
+(defmacro pr-info [& body]
+  `(log/info ~@body)
+  ;; `(prn ~@body)
+  )
+
 ;; we won't touch STM (software transactional memory), agents, refs etc
 ;; let's focus on things that are actually used a lot in real applications
 
@@ -34,27 +40,43 @@
 
 (defn run-java-thread
   []
-  (log/info "Before thread")
+  (pr-info "Before thread")
   (.start (new Thread (fn []
                         (Thread/sleep 1000)
-                        (log/info "from thread"))))
-  (log/info "After thread"))
+                        (pr-info "from thread"))))
+  (pr-info "After thread"))
 
 ;; but that's too much code + java interop
 
 ;; clojure Future instead
 (defn run-clojure-future
   []
-  (log/info "Before future")
+  (pr-info "Before future")
   (let [f
         (future
           (Thread/sleep 1000)
-          (log/info "From future body")
-          (log/info "from future")
+          (pr-info "From future body")
+          (pr-info "from future")
           {:result "from future"})]
-    (log/info "After future")
-    (log/info "Result of future is " (deref f)))
+    (pr-info "After future")
+    (pr-info "Result of future is " (deref f)))
   )
+
+(defn serial-requests
+  []
+  (let [urls (->> (client/get "https://pokeapi.co/api/v2/pokemon-species?limit=100"
+                              {:as :json})
+                  :body
+                  :results
+                  (map :url))]
+
+    (->> urls
+         (map (fn [url]
+                (-> (client/get url {:as :json})
+                    :body
+                    (select-keys [:name :shape]))))
+         (doall))))
+
 
 (defn parallel-requests
   []
@@ -75,7 +97,6 @@
 
 
 
-
 ;; Atoms
 
 (def counter 0)
@@ -87,17 +108,17 @@
              (dotimes [_ 1000]
                ;(Thread/sleep 1)
                (alter-var-root #'counter (constantly (inc counter))))
-             (log/info "f1 ends")
+             (pr-info "f1 ends")
              ::f1
              )
         f2 (future
              (dotimes [_ 1000]
                ;(Thread/sleep 2)
                (alter-var-root #'counter (constantly (inc counter))))
-             (log/info "f2 ends")
+             (pr-info "f2 ends")
              ::f2)]
     (and (deref f1) (deref f2))
-    (log/info "Here!" @f1 @f2)
+    (pr-info "Here!" @f1 @f2)
     counter
 
     )
@@ -105,20 +126,32 @@
   )
 
 (def counter-atom (atom 0))
+(def counter-atom-f1 (atom 0))
+(def counter-atom-f2 (atom 0))
 
 (defn inc-counter-atom-test
   []
   (reset! counter-atom 0)
+  (reset! counter-atom-f1 0)
+  (reset! counter-atom-f2 0)
+
   (let [f1 (future
-             (dotimes [_ 1000]
-               (swap! counter-atom inc))
+             (dotimes [_ 10000]
+               (swap! counter-atom (fn [x]
+                                     (swap! counter-atom-f1 inc)
+                                     (inc x))))
              ::f1)
         f2 (future
-             (dotimes [_ 1000]
-               (swap! counter-atom inc))
+             (dotimes [_ 10000]
+               (swap! counter-atom (fn [x]
+                                     (swap! counter-atom-f2 inc)
+                                     (inc x))))
              ::f2)]
-    (log/info "Here!" @f1 @f2)
-    (deref counter-atom)))
+    (pr-info "Here!" @f1 @f2)
+    (pr-info (deref counter-atom)
+         (deref counter-atom-f1)
+         (deref counter-atom-f2))
+))
 
 (swap! counter-atom (fn [old-value arg1]
                       (println old-value arg1)

@@ -4,7 +4,7 @@
             [common.util :refer [find-if]]
             ;; [clojure.tools.trace :as trace] ;; (trace/untrace-ns 'oz.core)
             [common.view :refer [view-image]]
-            [lecture.vega-plot :as vp]))
+            [common.vega-plot :as vp]))
 
 
 (defn baby-name-plot
