@@ -1,4 +1,4 @@
-# Higher order Functions
+# Higher Order Functions
 
 ## Sorting
 
@@ -20,10 +20,37 @@ avoid this, sort a copy of the array.
 
 
 ---
-## Tabulate
+
+## Anonymous function syntax
+
+- [Anonymous functions](https://clojure.org/guides/learn/functions#_anonymous_function_syntax)
+- [%1, %2 Notation](https://clojure.org/guides/weird_characters#_n_anonymous_function_arguments)
+- [% Notation](https://clojure.org/guides/weird_characters#_anonymous_function)
 
 
 ---
+
+## Local functions
+
+Local functions can be specified using the Anonuymous function syntax as shown above
+or with the `(fn [x y] ...)` syntax.
+
+Another syntax `letfn` can be used to specify a suite of perhaps mutually recursive functions.
+
+---
+
+## Tabulate
+
+Write a function which takes a size, `n` and a unary function, `f`.  The function should
+allocate a vector of size `n` and populate it with `[(f 0) (f 1) ... (f (dec n))]`.
+
+```
+(defn tabulate [n f]
+  ...)
+```
+
+---
+
 ## Pipelines
 ### `map` and `mapcat`
 ### `filter`

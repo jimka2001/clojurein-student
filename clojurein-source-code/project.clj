@@ -2,7 +2,7 @@
   :description "Source code for Clojurein"
   :license {:name "BSD"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
-  :dependencies [[org.clojure/clojure "1.11.1"]
+  :dependencies [[org.clojure/clojure "1.11.3"]
                  [org.clojure/tools.trace "0.7.11"] ;; DOCKER OMIT
                  [metasoarous/oz "2.0.0-alpha5"]    ;; DOCKER OMIT
                  [org.clj-commons/claypoole "1.2.2"]    ;; DOCKER OMIT
@@ -31,7 +31,7 @@
              ;; WARNING: All illegal access operations will be denied in a future release ;; MAC only
 
              "--add-opens=java.xml/com.sun.xml.internal.stream.writers=ALL-UNNAMED" ;; MAC only
-             "-Dclojure.tools.logging.factory=clojure.tools.logging.impl/slf4j-factory"
+             "-Dclojure.tools.logging.factory=clojure.tools.logging.impl/slf4j-factory" ;; DOCKER OMIT
              ]
   :profiles {:test {:plugins [[lein-test-report-junit-xml "0.2.0"]]
                     :test-report-junit-xml {:output-dir "."}
