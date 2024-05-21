@@ -2,6 +2,7 @@ SRC = ${PWD}/../clojurein/.
 DST = ${PWD}/../clojurein-student/.
 
 all:
+	cp ${SRC}/clojurein-source-code/Makefile.test ./clojurein-source-code/.
 	mkdir -p ${DST}/doc/img
 	cp ${SRC}/doc/*.md ${DST}/doc/.
 	cp ${SRC}/doc/img/*.png ${DST}/doc/img/.

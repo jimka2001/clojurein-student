@@ -1,0 +1,41 @@
+all: binarysearch cakecutting calculus factors frenchnames hello polynomial recursion reduce runaverage theg trig triptych
+
+
+binarysearch:
+	lein test homework.binarysearch-test
+
+cakecutting:
+	lein test homework.cakecutting-test
+
+calculus:
+	lein test homework.calculus-test
+
+factors:
+	lein test homework.factors-test
+
+frenchnames:
+	lein test homework.frenchnames-test
+
+hello:
+	lein test homework.hello-test
+
+polynomial:
+	lein test homework.polynomial-test
+
+recursion:
+	lein test homework.recursion-test
+
+reduce:
+	lein test homework.reduce-test
+
+runaverage:
+	lein test homework.runaverage-test
+
+theg:
+	lein test homework.theg-test
+
+trig:
+	lein test homework.trig-test
+
+triptych:
+	lein test homework.triptych-test
