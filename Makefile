@@ -3,13 +3,13 @@ DST = ${PWD}/../clojurein-student/.
 
 all:
 	cp ${SRC}/clojurein-source-code/Makefile.test ./clojurein-source-code/.
-	mkdir -p ${DST}/doc/img
-	cp ${SRC}/doc/*.md ${DST}/doc/.
-	cp ${SRC}/doc/img/*.png ${DST}/doc/img/.
 	cp ${SRC}/*.md .
 	mkdir -p .vscode
 	cp ${SRC}/.vscode/settings.json ./.vscode/.
 	mkdir -p ${DST}/clojurein-source-code/src/repl_sessions
+	mkdir -p ${DST}/clojurein-source-code/doc/img
+	cp ${SRC}/clojurein-source-code/doc/*.md ${DST}/clojurein-source-code/doc/.
+	cp ${SRC}/clojurein-source-code/doc/img/*.png ${DST}/clojurein-source-code/doc/img/.
 	cp ${SRC}/clojurein-source-code/src/repl_sessions/*.clj ${DST}/clojurein-source-code/src/repl_sessions/. 
 	cp ${SRC}/clojurein-source-code/project.clj ./clojurein-source-code/project.clj
 	cp -r ${SRC}/clojurein-source-code/resources/*.xml ./clojurein-source-code/resources/.
