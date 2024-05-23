@@ -17,6 +17,7 @@ clojurein-source-code/.idea
 clojurein-source-code/.clj-kondo
 clojurein-source-code/.lsp
 *.clj~
+*.iml
 
 #*.clj#
 .lsp/.cache
