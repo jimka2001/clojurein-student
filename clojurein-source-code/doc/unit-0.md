@@ -1,5 +1,58 @@
 # Unit 0 - Structure of Course and Homework
 
+## Functional Programming
+
+### Introduction
+
+This course is an introduction to functional programming using
+the Clojure programming language.  Clojure is a lisp implemented
+on the JVM.  My hope, as your instructor, is to show you
+enough to make you interested and intrigued.  Even if you don't use
+Clojure in your day to day work, understanding more paradigms and
+problem solving approaches will make you are more effective problem
+solver.
+
+---
+
+### What is Functional Programming?
+
+The answer depends on who you ask.  There are several principles:
+
+  - Programming with functions
+  - Recursion
+  - Avoiding mutation
+  - Avoiding side effects
+  - Pure functions
+  - Functions as objects
+  - Higher order functions
+
+### Why study functional programming?
+
+  - You will need to read programs written using FP languages or FP style 
+  - You may work using FP languages
+  - High paying and interesting [jobs](https://www.devjobsscanner.com/blog/top-10-highest-paid-programming-languages/), and [jobs](https://www.efinancialcareers.fr/en/news/2023/05/clojure-engineer-jobs-best-paid-programming-language).
+  - You can apply FP techniques to imperative languages
+  - You need to know lots of techniques to choose the best one.
+
+### Funcational Languages
+
+There are several current and historical functional programming languages:
+
+  - Clojure
+  - Scala
+  - Common Lisp
+  - Haskell
+  - Scheme
+  - ML
+  - OCaml
+  - Erlang
+  - Elixer
+  - F#
+
+
+---
+
+
 ## Installing Clojure
 
 You'll need to install clojure onto your local machine or laptop.

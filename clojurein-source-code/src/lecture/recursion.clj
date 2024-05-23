@@ -1,7 +1,8 @@
 (ns lecture.recursion)
 
 (defn sum-list-sr [nums]
-  (assert (list? nums))
+  ;; (assert (list? nums))
+  {:pre [(list? nums)]}
   (if (empty? nums)
     0
     (+ (first nums)
