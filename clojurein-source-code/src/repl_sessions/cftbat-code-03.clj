@@ -298,6 +298,8 @@ failed-protagonist-names
 
 (map inc [0 1 2 3])
 ; => (1 2 3 4)
+(map + [0 1 2 3])
+(map + [0 1 2 3 4] [10 20 30 40] [100 200 300 400])
 
 
 ;; Demonstrating recursive evaluation
@@ -307,6 +309,9 @@ failed-protagonist-names
 (+ 200 20) ; evaluated (/ 100 5)
 220 ; final evaluation
 
+;;;; ------------------
+;;;; continue here week 2
+;;;; ------------------
 
 ;; Special forms
 (if boolean-form
