@@ -144,6 +144,12 @@ You may test your code from the shell using
     sh> lein test homework.hello-test
 
 
+Or you may also use
+
+    sh> cd clojure-student/clojurein-source-code
+    sh> make -f Makefile.test hello
+
+
 If all the tests pass, the output might look something like this.
 
 
