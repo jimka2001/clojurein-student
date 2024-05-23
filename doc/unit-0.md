@@ -142,7 +142,7 @@ If the tests pass, you'll see something like the following on the Forge/intra pa
 
 ![PASS](img/intra-pass.png)
 
-If the tests fails, you'll be able to see the failure message.
+If the tests fail, you'll be able to see the failure message.
 
 ![FAIL](img/intra-fail.png)
 
