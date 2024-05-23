@@ -1,6 +1,5 @@
 (ns homework.calculus
-  (:require [clojure.test :refer [function?]]
-            [clojure.pprint :refer [cl-format]]))
+  (:require [clojure.test :refer [function?]]))
 
 (defn integral
   "use trapezoid rule to sum the area under the curve.

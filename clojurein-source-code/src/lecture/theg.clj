@@ -74,7 +74,7 @@
               initial-paths
               (range target-length)))))
     
-(def *graph*
+(def graph
   [[0 1] [0 2] 
    [1 2] [1 3] 
    [2 4] [2 5] [2 6] [2 7] 
@@ -84,6 +84,6 @@
    [6 8] 
    [7 8]])
 
-(show 9 *graph* :directed true)
+(show 9 graph :directed true)
 
-(list-paths *graph* 1 5)
+(list-paths graph 1 5)

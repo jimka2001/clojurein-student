@@ -82,4 +82,4 @@
                (throw (ex-info "Missing single expression, not yet implemented" {}))
                )))
 
-     (throw (ex-info "line never reached")))))
+     (throw (ex-info "line never reached" {})))))

@@ -1,8 +1,8 @@
 (ns homework.cakecutting-test
   (:require [homework.cakecutting :as sut]
             ;; [clojure.pprint :refer [cl-format]]
-            [common.util :refer [almost-equal testing-with-timeout *time-out*]]
-            [clojure.test :refer [deftest is testing]]))
+            [common.util :refer [almost-equal testing-with-timeout]]
+            [clojure.test :refer [deftest is]]))
 
 (def reference
   '((10 0.063281565095552948)  (11 0.06218749444597419)  (9 0.06212536907689728)  (12 0.060378403698454944) 

@@ -1,8 +1,8 @@
 (ns homework.frenchnames-test
   (:require [homework.frenchnames :as sut]
-            [common.util :refer [member testing-with-timeout *time-out*]]
+            [common.util :refer [member testing-with-timeout]]
             [clojure.pprint :refer [cl-format]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is]]))
 
 (deftest t-elide
   (testing-with-timeout "elide"
@@ -164,6 +164,7 @@
     (is (= #{"sainte"  "anne"  "marie"}
            (sut/hyphenated-names "catherine")))
     (let [el  (sut/hyphenated-names "el")
+          ;; TODO need to test marie, how?
           marie (sut/hyphenated-names "marie")]
       (is (= #{"habib"  "hadi"  "amine"  "kal"  "hadji" 
                "krim"  "nour"  "rahman"  "hadj"  "houda"  "mehdi" 

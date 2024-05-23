@@ -1,8 +1,8 @@
 (ns homework.binarysearch-test
   (:require [homework.binarysearch :as sut]
             [clojure.pprint :refer [cl-format]]
-            [common.util :refer [almost-equal testing-with-timeout *time-out*]]
-            [clojure.test :refer [deftest is testing]]))
+            [common.util :refer [almost-equal testing-with-timeout]]
+            [clojure.test :refer [deftest is]]))
 
 (deftest t-tolerance
   (testing-with-timeout "tolerance"
@@ -19,7 +19,7 @@
     (is (= false (sut/bin-search-by-boolean 0.0  100.0  #(>= % 5.0)  0.01   2)))
     (is (= false (sut/bin-search-by-boolean 0.0  100.0  #(>= % 5.0)  0.01  3)))))
 
-(deftest t-no-result-in-rante
+(deftest t-no-result-in-range
   (testing-with-timeout "no result in range"
     ;; check for no such result in range
     (is (= false (sut/bin-search-by-boolean 10.0  20.0 

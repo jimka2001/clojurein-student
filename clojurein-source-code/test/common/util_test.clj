@@ -1,14 +1,13 @@
 (ns common.util-test
   (:require [common.util :as sut]
-            [clojure.pprint :refer [cl-format]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is]]))
 
 (deftest t-find-if
   (sut/testing-with-timeout "find-if"
     (is (= '(1) (sut/find-if odd? [1 2 3 4])))
     (is (= '(2) (sut/find-if even? [1 2 3 4])))
     (is (identical? nil (sut/find-if even? [1 3 5 7])))
-    (is (= () (for [x (sut/find-if odd? [2 4 6 8])] 42)))
+    (is (= () (for [_x (sut/find-if odd? [2 4 6 8])] 42)))
     ))
 
 (deftest t-tails

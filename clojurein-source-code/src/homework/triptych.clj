@@ -51,11 +51,12 @@
   )
 
 
-(defn triptych? [cards]
+(defn triptych?
   "We represent a card as a Set of 4 strings, one string representing color,
    one string representing shape, one string representing number, and one
    string representing shading. triptych? should return true if its
    argument is a Triptych"
+  [cards]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
   )

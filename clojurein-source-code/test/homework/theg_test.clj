@@ -1,7 +1,7 @@
 (ns homework.theg-test
   (:require [homework.theg :as sut]
-            [common.util :refer [member testing-with-timeout *time-out*]]
-            [clojure.test :refer [deftest is testing]]))
+            [common.util :refer [member testing-with-timeout]]
+            [clojure.test :refer [deftest is]]))
 
 
 (deftest t-reversed-edges

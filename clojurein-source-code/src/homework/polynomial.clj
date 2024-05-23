@@ -240,7 +240,7 @@
      (if (< (abs (- right left)) epsilon)
        mid
        (let [f-left (poly-evaluate poly left)
-             f-right (poly-evaluate poly right)
+             ;; f-right (poly-evaluate poly right)
              f-mid (poly-evaluate poly mid)]
          (cond (<= (* f-left f-mid) 0)
                (recur poly left mid epsilon)
@@ -327,7 +327,7 @@
          ;; ax^3 + bx^2 + cx + 0, has 0 root, so divide by x and find remaining roots
          (and (>= (poly-degree poly) 1)
               (== 0 (poly-coef poly 0)))
-         (let [[q r] (poly-divide poly {1 1})]
+         (let [[q _r] (poly-divide poly {1 1})]
            (conj (poly-roots q epsilon)
                  0))
 
@@ -349,7 +349,7 @@
          ;; return a vector of r1 with the roots found recursively
          (odd? (poly-degree poly))
          (let [root (find-root-by-binary-search poly (/ epsilon 10))
-               [order-2 rem] (poly-divide poly (poly-from-roots [root]))]
+               [order-2 _rem] (poly-divide poly (poly-from-roots [root]))]
            (conj (poly-roots order-2 epsilon)
                  root))
 
@@ -363,7 +363,7 @@
          (let [rs (poly-roots-by-inflection-points poly epsilon)]
            (if (empty? rs)
              [] ;; unable to find any roots of even degree polynomial
-             (let [[less-order rem] (poly-divide poly (poly-from-roots rs))]
+             (let [[less-order _rem] (poly-divide poly (poly-from-roots rs))]
                (concat rs
                        (poly-roots less-order epsilon))))))))
 

@@ -1,7 +1,5 @@
 (ns common.vega-plot
-  (:require [oz.core :as oz]
-            [clojure.pprint :refer [pprint]]
-            [clojure.tools.trace :as trace]))
+  (:require [oz.core :as oz]))
 
 (defn series-format-plot-data 
   "encode plotting data into an hashmap ready to pass to oz/view!"

@@ -1,9 +1,9 @@
 (ns homework.factors-test
   (:require [homework.factors :as sut]
             [clojure.pprint :refer [cl-format]]
-            [common.util :refer [re-chunk testing-with-timeout *time-out* member]]
-            [clojure.math :refer [sqrt ceil]]
-            [clojure.test :refer [deftest is testing]]))
+            [common.util :refer [re-chunk testing-with-timeout member]]
+            [clojure.math :refer [sqrt]]
+            [clojure.test :refer [deftest is]]))
 
 (defn prime?
   [p]

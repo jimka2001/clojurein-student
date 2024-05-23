@@ -2,7 +2,7 @@
   (:require [homework.triptych :as sut]
             [clojure.set :refer [union intersection difference subset?]]
             [clojure.pprint :refer [cl-format]]
-            [common.util :refer [almost-equal time-call *time-out* testing-with-timeout]]
+            [common.util :refer [*time-out* testing-with-timeout]]
             [clojure.test :refer [deftest is]]))
 
 (defmacro test-testing [name & exprs]

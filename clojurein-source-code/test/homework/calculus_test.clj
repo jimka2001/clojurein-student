@@ -113,11 +113,11 @@
 (deftest t-derivative-1
   (binding [*time-out* calculus-time-out]
     (testing "derivative 1"
-      (doseq [[k f f'] [[1 (fn [x] 5.3) (fn [x] 0)]
+      (doseq [[k f f'] [[1 (fn [_x] 5.3) (fn [_x] 0)]
                         [2 sin cos]
                         [3 cos (fn [x] (- (sin x)))]
 
-                        [4 (fn [x] (+ (* 3 x) 1)) (fn [x] 3)]
+                        [4 (fn [x] (+ (* 3 x) 1)) (fn [_x] 3)]
                         [5 (fn [x] (+ (* 3 x x) x 1)) (fn [x] (+ (* 6 x) 1))]]
               :let [epsilon 0.0001
                     dx+ (fn [x] (let [d (sut/derivative+ f x 0.01 epsilon)]
@@ -136,11 +136,11 @@
 (deftest t-derivative-2
   (binding [*time-out* calculus-time-out]
     (testing "derivative 1"
-      (doseq [[k f f'] [[1 (fn [x] 5.3) (fn [x] 0)]
+      (doseq [[k f f'] [[1 (fn [_x] 5.3) (fn [_x] 0)]
                         [2 sin cos]
                         [3 cos (fn [x] (- (sin x)))]
 
-                        [4 (fn [x] (+ (* 3 x) 1)) (fn [x] 3)]
+                        [4 (fn [x] (+ (* 3 x) 1)) (fn [_x] 3)]
                         [5 (fn [x] (+ (* 3 x x) x 1)) (fn [x] (+ (* 6 x) 1))]]
               :let [epsilon 0.0001
                     dx- (fn [x] (let [d (sut/derivative- f x 0.01 epsilon)]
@@ -161,11 +161,11 @@
 (deftest t-derivative-3
   (binding [*time-out* calculus-time-out]
     (testing "derivative 1"
-      (doseq [[k f f'] [[1 (fn [x] 5.3) (fn [x] 0)]
+      (doseq [[k f f'] [[1 (fn [_x] 5.3) (fn [_x] 0)]
                         [2 sin cos]
                         [3 cos (fn [x] (- (sin x)))]
 
-                        [4 (fn [x] (+ (* 3 x) 1)) (fn [x] 3)]
+                        [4 (fn [x] (+ (* 3 x) 1)) (fn [_x] 3)]
                         [5 (fn [x] (+ (* 3 x x) x 1)) (fn [x] (+ (* 6 x) 1))]]
               :let [epsilon 0.0001
                     dx (fn [x] (let [d (sut/derivative f x 0.01 epsilon)]

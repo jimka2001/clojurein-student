@@ -1,8 +1,8 @@
 (ns homework.hello-test
   (:require [homework.hello :as sut]
             [clojure.string :as string]
-            [common.util :refer [testing-with-timeout *time-out*]]
-            [clojure.test :refer [deftest is testing]]))
+            [common.util :refer [testing-with-timeout]]
+            [clojure.test :refer [deftest is]]))
 
 
 (deftest t-hello-1

@@ -1,8 +1,7 @@
 (ns homework.determinant-test
   (:require [homework.determinant :as sut]
-            [clojure.pprint :refer [cl-format]]
             [common.util :refer [testing-with-timeout]]
-            [clojure.test :refer [deftest is testing]]))
+            [clojure.test :refer [deftest is]]))
 
 (deftest t-det-trival
   (testing-with-timeout "det trivial"
@@ -34,7 +33,7 @@
   (testing-with-timeout "det zero"
     (doseq [n (range 1 10)]
       (is (= 0 (sut/determinant (mat-tabulate n
-                                              (fn [r c]
+                                              (fn [_r _c]
                                                 0))))))))
 
 

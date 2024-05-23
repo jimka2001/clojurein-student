@@ -296,7 +296,7 @@
                                    sut/one  (sut/poly-power sut/one  n))
             "one to any positive power should be 1"))
       (doseq [p polynomials]
-        (if (not (sut/poly-almost-equal 0.0001
+        (when (not (sut/poly-almost-equal 0.0001
                                         p sut/zero))
           ;; cannot raise 0^0
           (is (sut/poly-almost-equal 0.0001
@@ -394,7 +394,7 @@
       (doseq [p random-polynomials
               :let [d (sut/poly-derivative p)]]
         (if (zero? (sut/poly-degree p))
-          (is (= (sut/poly-equal sut/zero d)))
+          (is (sut/poly-equal sut/zero d))
           (is (= (- (sut/poly-degree p) 1)
                  (sut/poly-degree (sut/poly-derivative p))))))
 
@@ -441,25 +441,25 @@
   (binding [*time-out* polynomial-time-out]
     (testing-with-timeout "polynomial roots-a"
       ;; degree 3
-      (let [ae (almost-equal-seq 0.001)]
-        (let [control [-10 -10 -9]
-              p (sut/poly-from-roots control)
-              rs (sut/poly-roots p epsilon)]
-          (is (ae (sort control)
-                  rs)
-              (cl-format false "expecting=~A got rs=~A" control rs)))))))
+      (let [ae (almost-equal-seq 0.001)
+            control [-10 -10 -9]
+            p (sut/poly-from-roots control)
+            rs (sut/poly-roots p epsilon)]
+        (is (ae (sort control)
+                rs)
+            (cl-format false "expecting=~A got rs=~A" control rs))))))
 
 (deftest t-roots-3b
   (binding [*time-out* polynomial-time-out]
     (testing-with-timeout "polynomial roots-b"
       ;; degree 3
-      (let [ae (almost-equal-seq 0.001)]
-        (let [control [-9 0 9]
-              p (sut/poly-from-roots control)
-              rs (sut/poly-roots p epsilon)]
-          (is (ae (sort control)
-                  rs)
-              (cl-format false "expecting=~A got rs=~A" control rs)))))))
+      (let [ae (almost-equal-seq 0.001)
+            control [-9 0 9]
+            p (sut/poly-from-roots control)
+            rs (sut/poly-roots p epsilon)]
+        (is (ae (sort control)
+                rs)
+            (cl-format false "expecting=~A got rs=~A" control rs))))))
 
 (deftest t-roots-3
   (binding [*time-out* polynomial-time-out]
