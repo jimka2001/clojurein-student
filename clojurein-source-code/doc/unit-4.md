@@ -2,7 +2,7 @@
 
 ## Sorting
 
-`(sort coll)` and `(sort comp coll)` Returns a sorted sequence of the
+`(sort coll)` and `(sort comp coll)` --- Returns a sorted sequence of the
 items in `coll`. If no comparator is supplied, uses `compare`.  comparator
 must implement `java.util.Comparator`.  Guaranteed to be stable: equal
 elements will not be reordered.  If coll is a Java array, it will be
@@ -10,7 +10,7 @@ modified.  To avoid this, sort a copy of the array.
 
 [Comparators](https://clojure.org/guides/comparators)
 
-`(sort-by keyfn coll)` and `(sort-by keyfn comp coll)`
+`(sort-by keyfn coll)` and `(sort-by keyfn comp coll)` ---
 Returns a sorted sequence of the items in `coll`, where the sort
 order is determined by comparing `(keyfn item)`.  If no comparator is
 supplied, uses `compare`.  comparator must implement

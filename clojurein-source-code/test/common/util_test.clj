@@ -69,4 +69,3 @@
   (sut/testing-with-timeout "almost equal"
     (is (= true ((sut/almost-equal 0.01) 1.0 1.00001)))
     (is (= false ((sut/almost-equal 0.01) 1.0 2.00001)))))
-

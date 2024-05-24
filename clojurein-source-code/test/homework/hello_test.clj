@@ -12,19 +12,19 @@
 
 (deftest t-prefix
   (testing-with-timeout "prefix"
-    (for [i (range 100)
+    (doseq [i (range 100)
           :let [who (str i)]]
       (is (string/starts-with? (sut/hello who) "Hello, ")))))
 
 (deftest t-suffix
   (testing-with-timeout "suffix"
-    (for [i (range 100)
+    (doseq [i (range 100)
           :let [who (str i)]]
       (is (string/ends-with? (sut/hello who) ".")))))
 
 (deftest t-infix
   (testing-with-timeout "infix"
-    (for [i (range 100)
+    (doseq [i (range 100)
           :let [who (str i)]]
       (is (string/includes? (sut/hello who) who)))))
 

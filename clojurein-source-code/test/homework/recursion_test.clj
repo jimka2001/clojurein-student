@@ -34,7 +34,7 @@
 
 (deftest t-sum-doubles-a
   (testing-with-timeout "sum doubles a"
-    (for [f [;; sut/sum-by-simple-recursion
+    (doseq [f [;; sut/sum-by-simple-recursion
              sut/sum-by-loop-recur
              sut/sum-by-reduce]]
       (do (is (== 0.0 (f ())))
@@ -42,7 +42,7 @@
           ;; we should actually have exact equality
           (is (== 16.5 (f '(1.5 2.0 3.25 4.0 5.75))))
           ))
-    (for [f [;; sut/sum-by-simple-recursion
+    (doseq [f [;; sut/sum-by-simple-recursion
              sut/sum-by-loop-recur
              sut/sum-by-reduce]
           :let [long-list (map (constantly 0.0) (range recursion-limit))]]
