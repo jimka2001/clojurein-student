@@ -11,21 +11,26 @@
   ([f epsilon]
    (loop [left -1.0
           right 1.0]
+     {:pre [(< left right)]}
      (println [:a left right])
      (if (> (* (f left) (f right)) 0)
-       (recur (* 2 left)
-              (* 2 right))
+       (let [expand (/ (- right left) 2)]
+         (recur (- left expand)
+                (+ right expand)))
        (bin-search left right f epsilon))))
   ([left right f epsilon]
+   {:pre [(< left right)]}
    (let [mid (/ (+ left right) 2)
          fm (f mid)]
      (println [:b left right mid fm])
 
      (cond (< (- right left) epsilon)
-           left
+           mid
            
            (> (* (f left) (f right)) 0)
-           nil
+           (throw (ex-info "function does not have opposite signs at endpoints"
+                           {:left left
+                            :right right}))
            
            (> (f left) 0)
            (bin-search left right
@@ -38,8 +43,10 @@
            :else
            (bin-search mid right f epsilon)))))
 
-        
 
-(let [p1 (make-cubic 1.0 2.0 -0.5 -1.0)
-      p2 (make-cubic -1.0 2.0 -1.5 -1.0)]
-  (bin-search p1 0.001))
+;;(let [cu (make-cubic 1.0 2.0 -0.5 -1.0)
+;;      root (bin-search p2 0.00001)]
+;;  (printf "root=%s\n" root)
+;;  (printf "f(root)=%s\n" (cu root)))
+;;
+;;(bin-search -10.0 10.0 (fn [x] 100.0) 0.0003)
