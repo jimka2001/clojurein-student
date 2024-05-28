@@ -10,21 +10,21 @@
 
   (let [polished-data (for [[label aseq] data
                             [x y] aseq]
-                        {:x (float x)
-                         :y (float y)
+                        {x-label (float x)
+                         y-label (float y)
                          :series label})]
     {:data {:values polished-data}
+     :width 600
+     :height 600
      :title {:text chart-title}
      :description chart-title
      :axes [{:orient "bottom"
-             ;; TODO this is NOT setting the label
              :title x-label}
             {:orient "left"
-             ;; TODO this is NOT setting the label
              :title y-label}]
-     :encoding {:x {:field "x" ;; x-label
+     :encoding {:x {:field x-label
                     :type "quantitative"}
-                :y {:field "y" ;; y-label
+                :y {:field y-label
                     :type "quantitative"}
                 :color {:field "series"
                         :type "nominal"}}
