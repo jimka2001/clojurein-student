@@ -1,16 +1,18 @@
 # Clojure Lecture 2
 
 ## Finish cftbat-code-03.clj
+  - Clojure for the Brave and True (Higgenbotham)
 
   - conj
-
-## Partial Predicate Problem
+  - contains
+  - some
 
 ## Binary search with cubic polynomial
 
 
 ### find element of sequence which matches predicate
 
+  - Partial Predicate Problem
   - break out of recursion (easy)
   - break out of reduce
   - filter with lazy
@@ -20,5 +22,5 @@
 
   - find element in list
   - compute adjacency list
-  - DFS search
+  - BFS search
   

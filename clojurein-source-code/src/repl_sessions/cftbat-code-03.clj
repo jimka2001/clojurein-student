@@ -356,7 +356,10 @@ failed-protagonist-names
    (do-things first-arg second-arg))
   ;; 1-arity arguments and body
   ([first-arg]
-   (do-things first-arg)))
+   (do-things first-arg))
+
+  ([a b & others]
+   ...))
 
 
 ;; Using arity to provide a default value for an argument
@@ -512,7 +515,7 @@ failed-protagonist-names
 #(* % 3)
 
 
-(#(str %1 " and " %2) "cornbread" "butter beans")
+(#(str %2 " and " %1) "cornbread" "butter beans")
 ; => "cornbread and butter beans"
 
 (#(identity %&) 1 "blarg" :yip)
@@ -543,7 +546,7 @@ failed-protagonist-names
                              {:name "chest" :size 10}
                              {:name "back" :size 10}
                              {:name "left-forearm" :size 3}
-                             {:name "abdomen" :size 6}
+                             {:name "abdomen" :sizo 6}
                              {:name "left-kidney" :size 1}
                              {:name "left-hand" :size 2}
                              {:name "left-knee" :size 2}

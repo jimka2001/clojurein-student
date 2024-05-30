@@ -5,11 +5,17 @@
     (+ (* a x x x)
        (* b x x)
        (* c x)
-       d)))
+       d))
+  )
 
 (defn make-cubic-by-roots [s r1 r2 r3]
   ;; finish this function
-  )
+  (letfn [(cubic [x]
+            (* s
+               (- x r1)
+               (- x r2)
+               (- x r3)))]
+    cubic))
 
 (defn bin-search
   ([f epsilon]
@@ -22,6 +28,7 @@
          (recur (- left expand)
                 (+ right expand)))
        (bin-search left right f epsilon))))
+
   ([left right f epsilon]
    {:pre [(< left right)]}
    (let [mid (/ (+ left right) 2)
@@ -44,8 +51,8 @@
            
            (> (f left) 0)
            (recur left right
-                       (fn [x] (- (f x)))
-                       epsilon)
+                  (fn [x] (- (f x)))
+                  epsilon)
            
            (> fm 0)
            (recur left mid f epsilon)
