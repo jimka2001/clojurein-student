@@ -19,8 +19,8 @@
 
    To add this series we take advantage of the fact that term T(n+1) = T(n) * (x/n).
     Thus we avoid explicitly calculating x^n and n!, because we always start with x^(n-1)/(n-1)!.
-    The body of the foldLeft, does not simply calculate the sum, but rather calculates
-    a pair (sum, nextTerm),  with nextTerm = term * x/n
+    The body of the reduce, does not simply calculate the sum, but rather calculates
+    a pair [sum nextTerm],  with nextTerm = term * x/n
 
   This implementation contains an optimization.  If |x| > 1, then we divide by 2.0
   to compute exp(x/2.0) then square the result.
@@ -42,11 +42,11 @@
              1    x^2   x^4   x^6
    cos(x) = --- - --- + --- - --- + ...
              0!    2!    4!    6!
-   Follow the pattern of 'def exp' above to express the cosine computation
-   in terms of foldLeft.  The difference is that you need to
+   Follow the pattern of 'defn exp' above to express the cosine computation
+   in terms of reduce.  The difference is that you need to
     1) make sure the calculated term alternates in sign from one iteration
          to the next
-    2) the iterator feeding into foldLeft is not (1 to nTerms) but rather
+    2) the range feeding into reduce is not from 1 to nTerms, but rather
          a different start and end point, and a step by 2
     3) given one term in the sum, what must you multiply it by
          to obtain the next?  It is no longer x/n as before.
@@ -84,7 +84,7 @@
      sin(x) = --- - --- + --- - --- + ...
                1!    3!    5!    7!
    Follow the pattern of exp and cos above.   This can be done with the
-   same code inside the 2nd argument of foldLeft, but different first argument,
+   same code inside the 1st argument of reduce, but different argument
    indicating the initial value of the sum.  Notice that the cos series
    starts at 1, whereas the sin series starts at x.
    Also be careful that the iteration variable must traverse the odd integers
@@ -113,4 +113,3 @@
                                   (throw (ex-info "Missing single expression, not yet implemented" {}))
                                   )
                            ))))))
-
