@@ -65,7 +65,7 @@
 
 (defn poly-evaluate
   "given a polynomial and a numerical value  evaluate the polynomial.
-  E.g.  (poly-evaluate {2 2.2, 0, -1.1) 4.3))
+  E.g.  (poly-evaluate {2 2.2, 0, -1.1} 4.3)
          ==> 2.2*pow(4.3 2) - 1.1*pow(4.3 0)"
   [a x]
   ;; CHALLENGE: student must complete the implementation.
