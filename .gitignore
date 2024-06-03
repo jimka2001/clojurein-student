@@ -26,3 +26,4 @@ clojurein-source-code/.lsp
 # Calva
 **/.calva/*.calva-repl
 clojurein-source-code/.vscode
+.DS_Store
