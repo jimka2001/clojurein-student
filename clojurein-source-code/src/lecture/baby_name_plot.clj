@@ -1,7 +1,6 @@
 (ns lecture.baby-name-plot
   (:require [clojure.string :refer [split]]
             [clojure.java.io :as io]
-            [common.util :refer [find-if]]
             ;; [clojure.tools.trace :as trace] ;; (trace/untrace-ns 'oz.core)
             [common.view :refer [view-image]]
             [common.vega-plot :as vp]))
@@ -71,8 +70,8 @@
         grouped (group-by :year triples)]
     (for [[year triples] grouped
           ;; skip if there fails to be at least one baby with the given name
-          found-triple (find-if (fn [triple] (= (:name triple) name-target))
-                                triples)
+          found-triple (filter (fn [triple] (= (:name triple) name-target))
+                               triples)
           ;; add up all the babies born this year, all names included
           :let [born-count (reduce + (map :count triples))]]
       ;; collect an [x y] pair to plot
