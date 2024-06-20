@@ -6,6 +6,14 @@
             [common.vega-plot :as vp]))
 
 
+
+(defn smoothen 
+  "Accepts a sequence of [x y] pairs, where the x's increase from left to right,
+  returns a sequence of [x y] pairs which represent a smoothened curve."
+  [xys]
+  xys)
+
+
 (defn baby-name-plot
   "Generate plot of single baby name."
   [name-target gender-target state-target]
@@ -32,12 +40,16 @@
     (vp/series-scatter-plot "Baby Name data" ;; chart-title
                             "Year" ;; x-label
                             "Total Names" ;; y-label
-                            [[(format "%s-%s-%s" name-target gender-target state-target) data]])))
+                            [[(format "%s-%s-%s" name-target gender-target state-target)
+                              ;; we must sort by `first` because there's no guarantee that the
+                              ;; years are in increasing order
+                              (smoothen (sort data))]])))
           
 (defn sample-plot-1 []
   (view-image (baby-name-plot "John" "M" "CA")))
 
 ;;(sample-plot-1)
+
 
 (defn baby-name-normalized-data
   "return a seqeunce of pairs [year percentage] where percentage measures
@@ -67,16 +79,19 @@
                               :name name
                               :count (Integer/parseInt count-raw)}))))
         ;; group the hashes by year
-        grouped (group-by :year triples)]
-    (for [[year triples] grouped
-          ;; skip if there fails to be at least one baby with the given name
-          found-triple (filter (fn [triple] (= (:name triple) name-target))
-                               triples)
-          ;; add up all the babies born this year, all names included
-          :let [born-count (reduce + (map :count triples))]]
-      ;; collect an [x y] pair to plot
-      [year (/ (* 100.0 (:count found-triple))
-               born-count)])))
+        grouped (group-by :year triples)
+        xys (for [[year triples] grouped
+                  ;; skip if there fails to be at least one baby with the given name
+                  found-triple (filter (fn [triple] (= (:name triple) name-target))
+                                       triples)
+                  ;; add up all the babies born this year, all names included
+                  :let [born-count (reduce + (map :count triples))]]
+               ;; collect an [x y] pair to plot
+              [year (/ (* 100.0 (:count found-triple))
+                       born-count)])]
+    ;; we must sort by `first` because there's no guarantee that the
+    ;; years are in increasing order
+    (smoothen (sort xys))))
   
 
 (defn plot-baby-names-normalized
