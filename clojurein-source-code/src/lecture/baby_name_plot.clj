@@ -11,6 +11,8 @@
   "Accepts a sequence of [x y] pairs, where the x's increase from left to right,
   returns a sequence of [x y] pairs which represent a smoothened curve."
   [xys]
+  ;; current the input is directly returned.
+  ;; TODO need to implement according to the docstring
   xys)
 
 
