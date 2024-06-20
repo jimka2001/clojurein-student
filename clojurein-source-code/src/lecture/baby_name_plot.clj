@@ -7,13 +7,15 @@
 
 
 
-(defn smoothen 
+(defn smoothen
   "Accepts a sequence of [x y] pairs, where the x's increase from left to right,
   returns a sequence of [x y] pairs which represent a smoothened curve."
   [xys]
-  ;; current the input is directly returned.
-  ;; TODO need to implement according to the docstring
-  xys)
+  (map (fn [[x1 y1] [x2 y2]]
+         [(/ (+ x1 x2) 2.0)
+          (/ (+ y1 y2) 2.0)])
+       xys
+       (rest xys)))
 
 
 (defn baby-name-plot
