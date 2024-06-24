@@ -1,9 +1,9 @@
 (ns homework.polynomial-test
   (:require [homework.polynomial :as sut]
             [common.util :refer [almost-equal almost-equal-seq
-                                                       testing-with-timeout *time-out*]]
+                                 is testing-with-timeout *time-out*]]
             [clojure.pprint :refer [cl-format]]
-            [clojure.test :refer [deftest is]]))
+            [clojure.test :refer [deftest]]))
 
 
 (defn random-polynomial [order]
