@@ -13,6 +13,7 @@
                  [org.slf4j/jul-to-slf4j "1.7.25"]    ;; DOCKER OMIT
                  [org.slf4j/jcl-over-slf4j "1.7.25"]    ;; DOCKER OMIT
                  [org.slf4j/log4j-over-slf4j "1.7.26"]    ;; DOCKER OMIT
+                 [cfft "0.1.0"]    ;; DOCKER OMIT
                  ]
   :source-paths ["src"]
   :test-paths ["test"]

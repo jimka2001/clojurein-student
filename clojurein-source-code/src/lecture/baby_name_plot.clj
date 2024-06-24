@@ -1,9 +1,13 @@
 (ns lecture.baby-name-plot
   (:require [clojure.string :refer [split]]
             [clojure.java.io :as io]
+            [clojure.math :refer [round]]
             ;; [clojure.tools.trace :as trace] ;; (trace/untrace-ns 'oz.core)
+            [common.util :refer [find-if]]
             [common.view :refer [view-image]]
-            [common.vega-plot :as vp]))
+            [common.vega-plot :as vp]
+            [cfft.core :refer [fft ifft]]
+))
 
 
 
@@ -16,6 +20,22 @@
           (/ (+ y1 y2) 2.0)])
        xys
        (rest xys)))
+
+
+
+(defn smoothen-with-fft
+  "Accepts a sequence of [x y] pairs, where the x's increase from left to right,
+  returns a sequence of [x y] pairs which represent a smoothened curve."
+  [xys]
+  (let [f (fft (map second xys))
+        num-freq (count f)
+        n (int (round (* 0.75 num-freq)))
+        s (map :real (ifft (take n f)))]
+    (map (fn [xy-1  y-2]
+           [(first xy-1) y-2])
+         xys s)))
+
+
 
 
 (defn baby-name-plot
