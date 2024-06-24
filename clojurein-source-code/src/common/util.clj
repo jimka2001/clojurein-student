@@ -1,5 +1,5 @@
 (ns common.util
-  (:require  [clojure.test :refer [is testing testing-contexts-str *testing-contexts*]]
+  (:require  [clojure.test :refer [do-report testing testing-contexts-str *testing-contexts* assert-expr]]
              [clojure.pprint :refer [cl-format]]))
 
 (defn tails
@@ -81,6 +81,35 @@
 
 
 (def ^:dynamic *time-out* (* 2 60 1000)) ;; 2 seconds
+
+
+(defmacro util-try-expr
+  "modified copy of closure.test/try-expr"
+  {:added "1.1"}
+  [msg form]
+  `(try ~(assert-expr msg form)
+        (catch Throwable t#
+          (do-report {:type :error, :message ~msg,
+                      :expected '~form, :actual t#})
+          (throw t#))))
+
+(defmacro is
+  "Generic assertion macro.  'form' is any predicate test.
+  'msg' is an optional message to attach to the assertion.
+  
+  Example: (is (= 4 (+ 2 2)) \"Two plus two should be 4\")
+
+  Special forms:
+
+  (is (thrown? c body)) checks that an instance of c is thrown from
+  body, fails if not; then returns the thing thrown.
+
+  (is (thrown-with-msg? c re body)) checks that an instance of c is
+  thrown AND that the message on the exception matches (with
+  re-find) the regular expression re."
+  {:added "1.1"} 
+  ([form] `(is ~form nil))
+  ([form msg] `(util-try-expr ~msg ~form)))
 
 (defn call-with-timeout [timeout-ms f]
   (let [timeout-val ::test-timeout
