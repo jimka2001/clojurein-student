@@ -77,7 +77,7 @@
                            (reduced (list item))
                            nil))
           nil
-          col))
+          (re-chunk 1 col)))
 
 
 (def ^:dynamic *time-out* (* 2 60 1000)) ;; 2 seconds
