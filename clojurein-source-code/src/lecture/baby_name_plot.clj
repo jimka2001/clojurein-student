@@ -106,8 +106,8 @@
         grouped (group-by :year triples)
         xys (for [[year triples] grouped
                   ;; skip if there fails to be at least one baby with the given name
-                  found-triple (filter (fn [triple] (= (:name triple) name-target))
-                                       triples)
+                  found-triple (find-if (fn [triple] (= (:name triple) name-target))
+                                        triples)
                   ;; add up all the babies born this year, all names included
                   :let [born-count (reduce + (map :count triples))]]
                ;; collect an [x y] pair to plot
