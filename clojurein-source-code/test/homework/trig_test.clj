@@ -1,7 +1,7 @@
 (ns homework.trig-test
   (:require [homework.trig :as sut]
-            [common.util :refer [almost-equal testing-with-timeout]]
-            [clojure.test :refer [deftest is]]))
+            [common.util :refer [almost-equal testing-with-timeout is]]
+            [clojure.test :refer [deftest]]))
 
 
 

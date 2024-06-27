@@ -1,7 +1,7 @@
 (ns homework.determinant-test
   (:require [homework.determinant :as sut]
-            [common.util :refer [testing-with-timeout]]
-            [clojure.test :refer [deftest is]]))
+            [common.util :refer [testing-with-timeout is]]
+            [clojure.test :refer [deftest]]))
 
 (deftest t-det-trival
   (testing-with-timeout "det trivial"

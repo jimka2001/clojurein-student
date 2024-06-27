@@ -29,13 +29,14 @@
   [xys]
   (let [f (fft (map second xys))
         num-freq (count f)
-        n (int (round (* 0.75 num-freq)))
-        s (map :real (ifft (take n f)))]
+        clip (quot (int (round (* 0.20 num-freq)))
+                   2)
+        clipped (drop clip (drop-last clip f))
+        s (map :real (ifft clipped))
+        ]
     (map (fn [xy-1  y-2]
            [(first xy-1) y-2])
          xys s)))
-
-
 
 
 (defn baby-name-plot
@@ -142,4 +143,4 @@
   (view-image (plot-baby-names-normalized "Baby Names 4" [["Arnold" "M" "FL"]
                                                           ["Arnold" "M" "CA"]])))
 
-;; (sample-plot-2)
+;;(sample-plot-2)

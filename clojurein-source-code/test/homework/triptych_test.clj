@@ -2,8 +2,8 @@
   (:require [homework.triptych :as sut]
             [clojure.set :refer [union intersection difference subset?]]
             [clojure.pprint :refer [cl-format]]
-            [common.util :refer [*time-out* testing-with-timeout]]
-            [clojure.test :refer [deftest is]]))
+            [common.util :refer [*time-out* testing-with-timeout is]]
+            [clojure.test :refer [deftest]]))
 
 (defmacro test-testing [name & exprs]
   `(testing-with-timeout ~name

@@ -84,7 +84,7 @@
 
 
 (defmacro util-try-expr
-  "modified copy of closure.test/try-expr"
+  "modified copy of clojure.test/try-expr"
   {:added "1.1"}
   [msg form]
   `(try ~(assert-expr msg form)

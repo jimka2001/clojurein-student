@@ -48,6 +48,8 @@
                         (pr-info (format "from thread: data=%s" data)))))
   (pr-info "After thread"))
 
+;;(run-java-thread 100)
+
 ;; but that's too much code + java interop
 
 ;; clojure Future instead
@@ -67,6 +69,8 @@
     (pr-info "After deref"))
   )
 
+;;(run-clojure-future 100)
+
 (defn serial-requests
   []
   (let [urls (->> (client/get "https://pokeapi.co/api/v2/pokemon-species?limit=100"
@@ -74,7 +78,6 @@
                   :body
                   :results
                   (map :url))]
-
     (->> urls
          (map (fn [url]
                 (pr-info (format "treating url: %s" url))
@@ -83,6 +86,7 @@
                     (select-keys [:name :shape]))))
          (doall))))
 
+;; (serial-requests)
 
 (defn parallel-requests
   []
@@ -134,6 +138,9 @@
     )
   )
 
+;;(inc-counter-test 1000)
+
+
 (def counter-atom (atom 0))
 (def counter-atom-f1 (atom 0))
 (def counter-atom-f2 (atom 0))
@@ -154,6 +161,9 @@
     (pr-info "Here!" @f1 @f2)
     (pr-info (deref counter-atom))
 ))
+
+;;(inc-counter-atom-test 1000)
+
 
 (defn inc-counter-atom-test
   "increment and decrement the atom the same number of times, but count the re-tries"
@@ -179,6 +189,8 @@
          (deref counter-atom-f1)
          (deref counter-atom-f2))
 ))
+
+(inc-counter-atom-test 1000)
 
 
 (comment

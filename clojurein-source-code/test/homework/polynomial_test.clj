@@ -152,8 +152,10 @@
               p2 polynomials
               p3 polynomials]
         (is (sut/poly-almost-equal 0.001
-                                   (sut/poly-plus(sut/poly-plus p1 p2) p3)
-                                   (sut/poly-plus p1 (sut/poly-plus p2 p3))))))))
+                                   (sut/poly-plus (sut/poly-plus p1 p2) p3)
+                                   (sut/poly-plus p1 (sut/poly-plus p2 p3)))
+            (format "Discovered non-associative input for poly-plus\np1=%s\np2=%sp3=%s"
+                    p1 p2 p3))))))
 
 (deftest t-plus-evaluate
   (binding [*time-out* polynomial-time-out]

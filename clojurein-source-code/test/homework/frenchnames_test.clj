@@ -1,8 +1,8 @@
 (ns homework.frenchnames-test
   (:require [homework.frenchnames :as sut]
-            [common.util :refer [member testing-with-timeout]]
+            [common.util :refer [member testing-with-timeout is]]
             [clojure.pprint :refer [cl-format]]
-            [clojure.test :refer [deftest is]]))
+            [clojure.test :refer [deftest]]))
 
 (deftest t-elide
   (testing-with-timeout "elide"
