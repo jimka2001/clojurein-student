@@ -31,6 +31,7 @@
                               (\ç) "c"
                               ;; CHALLENGE: student must complete the implementation.
                               (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+                              ;; HINT 5 line(s)
                               ))]
                       (if new-string
                         new-string
@@ -81,6 +82,7 @@
        
        ;; CHALLENGE: student must complete the implementation.
        (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+       ;; HINT 24 line(s)
        ))))
 
 
@@ -97,6 +99,7 @@
   (let [names (baby-names-per-year name gender elide)]
     ;; CHALLENGE: student must complete the implementation.
     (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+    ;; HINT 4 line(s)
     ))
 
 (defn hyphenated-names
@@ -124,6 +127,7 @@
       (set (for
                ;; CHALLENGE: student must complete the implementation.
                (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+               ;; HINT 14 line(s)
              )
        )
       )))

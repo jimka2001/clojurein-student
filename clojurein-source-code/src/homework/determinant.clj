@@ -12,6 +12,7 @@
   (fn [r0 c0]
     ;; CHALLENGE: student must complete the implementation.
     (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+    ;; HINT 2 line(s)
     ))
 
 (defn mat-to-function
@@ -27,6 +28,7 @@
   (fn [r0 c0]
     ;; CHALLENGE: student must complete the implementation.
     (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+    ;; HINT 1 line(s)
     ))
 
 (defn determinant
@@ -38,10 +40,12 @@
               (1) (f 0 0)
               (2) (- ;; CHALLENGE: student must complete the implementation.
               (2) (- (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+              (2) (- ;; HINT 2 line(s)
                    )
               (reduce (fn [acc k]
                         ;; CHALLENGE: student must complete the implementation.
                         (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+                        ;; HINT 7 line(s)
                         )
                       0
                       (range dim))))]

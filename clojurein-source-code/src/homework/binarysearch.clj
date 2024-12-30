@@ -45,6 +45,7 @@
           right 1.0]
      ;; CHALLENGE: student must complete the implementation.
      (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+     ;; HINT 5 line(s)
      ))
   ([left right f-step delta max-depth]
    (assert (<= left right))

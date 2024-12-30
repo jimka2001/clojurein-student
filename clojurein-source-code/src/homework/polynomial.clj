@@ -70,6 +70,7 @@
   [a x]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 4 line(s)
   )
 
 (defn to-function
@@ -100,6 +101,7 @@
   [a b]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 5 line(s)
   )
 
 (defn poly-scale
@@ -115,6 +117,7 @@
   [a b]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 1 line(s)
   )
 
 (defn poly-times
@@ -125,6 +128,7 @@
   [a b]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 9 line(s)
   )
 
 (defn poly-from-roots
@@ -133,6 +137,7 @@
   [roots]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 4 line(s)
   )
 
 (defn poly-power
@@ -165,6 +170,7 @@
   (assert (map? b))
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 5 line(s)
   )
 
 (defn poly-equal
@@ -177,6 +183,7 @@
   (assert (map? b))
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 1 line(s)
   )
 
 

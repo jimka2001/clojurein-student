@@ -28,6 +28,7 @@
   [data]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 7 line(s)
   )
 
 ;; We wish to define an addition and multiplication on pairs of integers

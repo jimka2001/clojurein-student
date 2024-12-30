@@ -13,6 +13,7 @@
 (def deck
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 6 line(s)
   )
 
 (defn card?
@@ -22,6 +23,7 @@
   [card]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 6 line(s)
   )
 
 (defn feature-compatible?
@@ -38,6 +40,7 @@
   ;; these the cards are NOT feature compatible.
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 6 line(s)
   )
 
 
@@ -48,6 +51,7 @@
   (assert (set? cards))
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 3 line(s)
   )
 
 
@@ -59,6 +63,7 @@
   [cards]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 3 line(s)
   )
 
 (defn complete-triptych
@@ -69,6 +74,7 @@
   (assert (card? c2) c2)
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 11 line(s)
   )
 
 (defn find-all-triptychs-as-seq
@@ -82,6 +88,7 @@
   [cards]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 6 line(s)
   )
 
 (defn find-all-triptychs-as-set
@@ -93,6 +100,7 @@
   [cards]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 1 line(s)
   )
 
 (defn find-triptych
@@ -104,6 +112,7 @@
   [cards]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 1 line(s)
   )
 
 (defn cap?
@@ -114,6 +123,7 @@
   (empty? (re-chunk 1 (find-all-triptychs-as-seq cards)))
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 0 line(s)
   )
 
 (defn grow-cap-by-one
@@ -122,6 +132,7 @@
   [cap partial-deck]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 5 line(s)
   )
 
 ;; Given a set of cards and a target size between 3 and 18 inclusive,
@@ -132,4 +143,5 @@
   [cards target-size]
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 10 line(s)
   )

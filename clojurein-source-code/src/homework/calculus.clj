@@ -27,6 +27,7 @@
 
             ;; CHALLENGE: student must complete the implementation.
             (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+            ;; HINT 2 line(s)
             )
           (sum-traps [n]
             ;; divide the interval into n equal subintervals,
@@ -34,11 +35,13 @@
             ;; areas of n-many trapezoids.
             ;; CHALLENGE: student must complete the implementation.
             (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+            ;; HINT 5 line(s)
             )]
     (loop [prev-area (sum-traps n)
            n (* 2 n)]
       ;; CHALLENGE: student must complete the implementation.
       (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+      ;; HINT 5 line(s)
       )))
 
 (defn derivative+
@@ -57,6 +60,7 @@
                           dx))]
     ;; CHALLENGE: student must complete the implementation.
     (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+    ;; HINT 7 line(s)
     ))
 
 (defn derivative-
@@ -90,4 +94,5 @@
   (assert (< 0 dx))
   ;; CHALLENGE: student must complete the implementation.
   (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+  ;; HINT 6 line(s)
   )

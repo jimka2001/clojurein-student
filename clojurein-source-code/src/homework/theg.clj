@@ -74,6 +74,7 @@
            to-do #{v-start}]
       ;; CHALLENGE: student must complete the implementation.
       (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+      ;; HINT 7 line(s)
       )))
 
   
@@ -87,4 +88,5 @@
            seen #{v-start}]
       ;; CHALLENGE: student must complete the implementation.
       (throw (ex-info "Missing one or more expressions, not yet implemented" {}))
+      ;; HINT 7 line(s)
       )))
