@@ -6,7 +6,7 @@
             [common.util :refer [find-if]]
             [common.view :refer [view-image]]
             [common.vega-plot :as vp]
-            [cfft.core :refer [fft ifft]]
+            ;;[cfft.core :refer [fft ifft]]
 ))
 
 
@@ -23,20 +23,20 @@
 
 
 
-(defn smoothen-with-fft
-  "Accepts a sequence of [x y] pairs, where the x's increase from left to right,
-  returns a sequence of [x y] pairs which represent a smoothened curve."
-  [xys]
-  (let [f (fft (map second xys))
-        num-freq (count f)
-        clip (quot (int (round (* 0.20 num-freq)))
-                   2)
-        clipped (drop clip (drop-last clip f))
-        s (map :real (ifft clipped))
-        ]
-    (map (fn [xy-1  y-2]
-           [(first xy-1) y-2])
-         xys s)))
+;; (defn smoothen-with-fft
+;;   "Accepts a sequence of [x y] pairs, where the x's increase from left to right,
+;;   returns a sequence of [x y] pairs which represent a smoothened curve."
+;;   [xys]
+;;   (let [f (fft (map second xys))
+;;         num-freq (count f)
+;;         clip (quot (int (round (* 0.20 num-freq)))
+;;                    2)
+;;         clipped (drop clip (drop-last clip f))
+;;         s (map :real (ifft clipped))
+;;         ]
+;;     (map (fn [xy-1  y-2]
+;;            [(first xy-1) y-2])
+;;          xys s)))
 
 
 (defn baby-name-plot
