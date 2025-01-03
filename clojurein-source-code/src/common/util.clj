@@ -134,3 +134,11 @@
 (defn type-check [f x]
   {:pre [(f x)]}
   x)
+
+(defn write-to-string [unary]
+  (let [writer (java.io.StringWriter.)]
+    (unary writer)
+    (.toString writer)))
+
+(defmacro with-output-to-string [var & body]
+  `(write-to-string (fn [~var] ~@body)))

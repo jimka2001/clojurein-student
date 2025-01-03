@@ -3,7 +3,7 @@
   :license {:name "BSD"
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.11.3"]
-                 [clojure-csv/clojure-csv "2.0.1"]
+                 [org.clojure/data.csv "1.1.0"]
                  [org.clojure/tools.trace "0.7.11"] ;; DOCKER OMIT
                  [metasoarous/oz "2.0.0-alpha5"]    ;; DOCKER OMIT
                  [org.clj-commons/claypoole "1.2.2"]    ;; DOCKER OMIT
