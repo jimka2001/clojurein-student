@@ -59,8 +59,13 @@ col0,col1,col2
 
 (deftest t-read-4
   (testing-with-timeout "read-4"
-    (let [s (io/resource "US-baby-names/namesbystate/CT.TXT")]
-      (with-open [r (io/reader s)]      
+    (let [txt "US-baby-names/namesbystate/CT.TXT"
+          s (or (io/resource txt)
+                (throw (ex-info "cannot open resource" {:txt txt})))]
+      (with-open [r (or (io/reader s)
+                        (throw (ex-info "cannot get reader from resource"
+                                        {:s s
+                                         :txt txt})))]
         (let [[[headers] lines] (sut/read-csv r
                                               :parsers {"count" parse-long}
                                               :headers ["state" "gender" "year" "name" "count"])]
